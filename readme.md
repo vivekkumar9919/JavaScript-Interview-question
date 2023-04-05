@@ -1,17 +1,15 @@
-primitive and non primitive
-shift and unshift
-slice and splice
-rest and spread
-let,var and constant
-null and undefined
-undeclared and undefined
-internal and external javascript
-parameter and argument
-deep copy and shalow copy
-== and ===
-call apply and bind
+
+
+
+
+
+
+
+
+
 local storage , session storage and cookies
-What is the difference between parameter and argument in JavaScript?
+
+What is the difference between call, apply and bind in JavaScript?
 
 
 
@@ -24,7 +22,7 @@ What is the difference between parameter and argument in JavaScript?
 - [1. What is Javascript ?](#q1)
 - [2. What is Key Features of Javascript ?](#q2)
 - [3. What are the data types in JavaScript? ?](#q3)
-- [4. What is the difference between null and undefined in JavaScript ?](#q4)
+- [4. What is the difference between null and undefined in JavaScript?](#q4)
 - [5. What is NaN in JavaScript? ?](#q5)
 - [6. What is the difference between Primitive and Non-primitive data types in JavaScript ?](#q6)
 - [7. What is the difference between == and === in JavaScript ?](#q7)
@@ -37,10 +35,63 @@ What is the difference between parameter and argument in JavaScript?
 - [14. What is the difference between parameter and argument in JavaScript? ](#q14)
 - [15. What is Callback? ](#q15)
 - [16. Why we need a callback in javascript? ](#q16)
-- [17.  ](#q17)
-- [18.  ](#q18)
-- [19.  ](#q19)
-- [20.  ](#q20)
+- [17. What is difference conformation box and alert box? ](#q17)
+- [18. What is the difference between shift and unshift in JavaScript? ](#q18)
+- [19. What is the difference between slice and splice in JavaScript? ](#q19)
+- [20. What is the difference between rest and spread in JavaScript? ](#q20)
+- [21. What is the difference between deep copy and shalow copy in JavaScript? ](#q21)
+- [22. What is the difference between call, apply and bind in JavaScript? ](#q22)
+- [23. What is local storage in JavaScript? ](#q23)
+- [24. What is session storage in JavaScript? ](#q24)
+- [25. What is the difference between local storage and session storage? ](#q25)
+- [26. How do you store data in local storage in JavaScript? ](#q26)
+- [27. How do you retrieve data from local storage in JavaScript? ](#q27)
+- [28. How do you remove data from local storage in JavaScript? ](#q28)
+- [29. How do you clear all data from local storage in JavaScript? ](#q29)
+- [30. What is the maximum amount of data that can be stored in local storage? ](#q30)
+- [31. How do you check if local storage is available in JavaScript? ](#q31)
+- [32. Is local storage secure in JavaScript? ](#q32)
+- [33. What is the difference between cookies and local storage? ](#q33)
+- [34. How can you ensure that local storage data is not lost if the user clears their browser cache? ](#q34)
+- [35. How do you set an expiration date for local storage data in JavaScript? ](#q35)
+- [36. What is the difference between synchronous and asynchronous storage operations in JavaScript? ](#q36)
+- [37. How do you handle errors when working with local storage in JavaScript? ](#q37)
+- [38. How do you synchronize local storage data between multiple devices? ](#q38)
+- [39. What is browser caching and how does it work? ](#q39)
+- [40. What is the difference between first-party cookies and third-party cookies? ](#q40)
+- [41. How do you set and read cookies in JavaScript? ](#q41)
+- [42. How do you delete a cookie in JavaScript? ](#q42)
+- [43. What is the typeof operator in JavaScript and how is it used? ](#q43)
+- [44. What is the in operator in JavaScript and how is it used? ](#q44)
+- [45. What is the 'instanceof' operator in JavaScript and how is it used? ](#q45)
+- [46. What is the delete operator in JavaScript and how is it used? ](#q46)
+- [47. What is the typeof null in JavaScript? ](#q47)
+- [48. What is the void operator in JavaScript and how is it used? ](#q48)
+- [49. What is the typeof NaN in JavaScript?  ](#q49)
+- [50. How do you concatenate two strings in JavaScript? ](#q50)
+- [51. How do you replace a substring within a string in JavaScript? ](#q51)
+- [52.  ](#q52)
+- [53.  ](#q53)
+- [54.  ](#q54)
+- [55.  ](#q55)
+- [56.  ](#q56)
+- [57.  ](#q57)
+- [58.  ](#q58)
+- [59.  ](#q59)
+- [61.  ](#q61)
+- [62.  ](#q62)
+- [63.  ](#q63)
+- [64.  ](#q64)
+- [65.  ](#q65)
+- [66.  ](#q66)
+- [67.  ](#q67)
+- [68.  ](#q68)
+- [69.  ](#q69)
+- [7.  ](#q7)
+- [6.  ](#q6)
+- [5.  ](#q5)
+- [5.  ](#q5)
+
 
 
 
@@ -225,6 +276,349 @@ Callbacks are a fundamental concept in JavaScript, and they are used extensively
 **Control Flow:** Callbacks can be used to control the flow of execution in a program, allowing us to create complex sequences of operations that execute in a specific order.
 
 <div id="q17"></div>
+
+## 17. What is difference conformation box and alert box? [&uarr; Top](#top)
+A confirmation box, also known as a confirm box, is used to ask the user for confirmation before proceeding with an action. It typically displays a message and two buttons, usually labeled "OK" and "Cancel". When the user clicks "OK", the confirm box returns a value of true, while clicking "Cancel" returns a value of false. Here's an example:
+```
+if (confirm("Are you sure you want to delete this item?")) {
+  // Delete the item
+} else {
+  // Do nothing
+}
+
+```
+An alert box, on the other hand, is used to display a message to the user. It typically has only one button, labeled "OK". When the user clicks "OK", the alert box is dismissed. Here's an example:
+```
+alert("Your message has been sent!");
+
+```
+
 <div id="q18"></div>
+
+## 18. What is the difference between shift and unshift in JavaScript? [&uarr; Top](#top)
+**shift()** method removes the first element from an array and returns it. This means that the array is modified and its length is reduced by one.
+Here's an example:
+```
+const arr = [1, 2, 3];
+const firstElement = arr.shift(); // firstElement = 1, arr = [2, 3]
+
+```
+**unshift()** method adds one or more elements to the beginning of an array and returns the new length of the array. This means that the original array is modified and new elements are added to the beginning of the array.
+```
+const arr = [2, 3];
+const newLength = arr.unshift(1); // newLength = 3, arr = [1, 2, 3]
+
+```
+
 <div id="q19"></div>
-<div id="q1"></div>
+
+## 19. What is the difference between slice and splice in JavaScript? [&uarr; Top](#top)
+
+**slice()** method returns a new array that contains a copy of a portion of the original array. The original array is not modified.
+Here's an example:
+```
+const arr = [1, 2, 3, 4, 5];
+const sliced = arr.slice(1, 4); // sliced = [2, 3, 4], arr = [1, 2, 3, 4, 5]
+
+```
+**The slice()** method takes two arguments: start and end, which are optional. If start is not specified, the slice starts from the beginning of the array. If end is not specified, the slice ends at the end of the array.
+
+splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements. This means that the original array is modified.
+Here's an example:
+```
+const arr = [1, 2, 3, 4, 5];
+const spliced = arr.splice(2, 2, 6, 7); // spliced = [3, 4], arr = [1, 2, 6, 7, 5]
+
+```
+
+<div id="q20"></div>
+
+## 20. What is the difference between rest and spread in JavaScript? [&uarr; Top](#top)
+In JavaScript, both rest and spread are features of the ES6 (ECMAScript 2015) specification that enable more flexible handling of arrays and objects.
+
+**Rest** is used to represent an indefinite number of arguments as an array. It is denoted by an ellipsis ... before the name of a parameter in a function definition, indicating that any number of additional arguments can be passed in as an array.
+Here's an example:
+```
+function sum(...numbers) {
+  return numbers.reduce((total, number) => total + number);
+}
+
+sum(1, 2, 3, 4); // returns 10
+
+```
+**Spread** is used to spread the elements of an array or an object into another array or object. It is also denoted by an ellipsis ..., but in this case it is used before an array or an object to spread its elements.
+```
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const mergedArray = [...arr1, ...arr2]; // mergedArray = [1, 2, 3, 4, 5, 6]
+
+```
+
+
+<div id="q21"></div>
+
+## 21. What is the difference between deep copy and shalow copy in JavaScript? [&uarr; Top](#top)
+In JavaScript, when you create a copy of an object or an array, there are two ways to do it: deep copy and shallow copy.
+
+**Shallow copy** creates a new object or array, but its properties or elements still point to the same memory location as the original object or array. This means that changes made to the original object or array will also affect the copied object or array.
+Here's an example:
+```
+const original = {a: {b: 1}};
+const copied = Object.assign({}, original);
+
+original.a.b = 2;
+
+console.log(original.a.b); // outputs 2
+console.log(copied.a.b); // outputs 2 as well, because the objects are sharing the same reference
+
+```
+In the above example, copied is a shallow copy of original, so changes made to the original object also affect the copied object.
+
+**Deep copy** creates a new object or array and also copies all nested objects or arrays, so that the copied object or array is completely independent from the original object or array.
+Here's an example:
+```
+const original = {a: {b: 1}};
+const copied = JSON.parse(JSON.stringify(original));
+
+original.a.b = 2;
+
+console.log(original.a.b); // outputs 2
+console.log(copied.a.b); // outputs 1, because the objects are completely independent
+
+```
+In the above example, copied is a deep copy of original, so changes made to the original object do not affect the copied object.
+
+So, the main difference between deep copy and shallow copy is that deep copy creates a completely independent copy of the original object or array, while shallow copy only creates a new object or array that shares some of the properties or elements with the original object or array.
+
+<div id="q22"></div>
+
+## 22. What is the difference between call, apply and bind in JavaScript? [&uarr; Top](#top)
+In JavaScript, call, apply, and bind are methods that allow you to set the this value for a function and pass in arguments in different ways.
+
+call and apply are used to call a function immediately, while bind returns a new function with the this value and some arguments pre-set.
+Here are the differences between them:
+
+**call:**
+The call() method allows you to call a function with a given this value and arguments provided as a list (comma-separated). Here's an example:
+```
+const person = {
+  name: "John",
+  age: 30,
+  greet: function() {
+    console.log(`Hi, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+};
+
+const employee = {
+  name: "Jane",
+  age: 25
+};
+
+person.greet.call(employee); // outputs "Hi, my name is Jane and I am 25 years old."
+
+```
+In the above example, call() is used to call the greet() function with the employee object as the this value.
+
+**apply:**
+The apply() method is similar to call(), but the arguments are passed in as an array. Here's an example:
+```
+const numbers = [1, 2, 3, 4, 5];
+
+const sum = function() {
+  return Array.prototype.reduce.call(arguments, (total, number) => total + number);
+};
+
+const result = sum.apply(null, numbers);
+
+console.log(result); // outputs 15
+
+```
+In the above example, apply() is used to call the sum() function with the numbers array as the argument list.
+
+**bind:**
+The bind() method returns a new function with the this value and some arguments pre-set. Here's an example:
+```
+const person = {
+  name: "John",
+  age: 30,
+  greet: function(greeting) {
+    console.log(`${greeting}, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+};
+
+const employee = {
+  name: "Jane",
+  age: 25
+};
+
+const greetEmployee = person.greet.bind(employee, "Hello");
+
+greetEmployee(); // outputs "Hello, my name is Jane and I am 25 years old."
+
+```
+In the above example, bind() is used to create a new function greetEmployee with the employee object as the this value and "Hello" as the first argument.
+
+So, the main difference between call(), apply(), and bind() is the way they pass arguments to the function and the way they set the this value.
+
+
+<div id="q23"></div>
+
+## 23. What is local storage in JavaScript? [&uarr; Top](#top)
+Local storage is a type of storage in JavaScript that allows web developers to store data within a user's browser. It is a key-value store, meaning that data is stored as a pair of key and value. Local storage data persists even after the user closes the browser window
+
+
+<div id="q24"></div>
+
+## 24. What is session storage in JavaScript? [&uarr; Top](#top)
+Session storage is another type of storage in JavaScript that allows web developers to store data within a user's browser. Unlike local storage, session storage data is stored only for the duration of the user's browser session, meaning that the data is lost when the user closes the browser window
+
+
+<div id="q25"></div>
+
+## 25. What is the difference between local storage and session storage? [&uarr; Top](#top)
+The main difference between local storage and session storage is that local storage data persists even after the user closes the browser window, while session storage data is lost when the user closes the browser window
+
+<div id="q26"></div>
+
+## 26. How do you store data in local storage in JavaScript? [&uarr; Top](#top)
+To store data in local storage, you can use the localStorage.setItem() method. For example, localStorage.setItem('key', 'value'); will store the string 'value' under the key 'key' in local storage
+
+<div id="q27"></div>
+
+## 27. How do you retrieve data from local storage in JavaScript?
+To retrieve data from local storage, you can use the localStorage.getItem() method. For example, localStorage.getItem('key'); will return the value stored under the key 'key' in local storage
+
+<div id="q28"></div>
+
+## 28. How do you remove data from local storage in JavaScript? [&uarr; Top](#top)
+To remove data from local storage, you can use the localStorage.removeItem() method. For example, localStorage.removeItem('key'); will remove the key-value pair with the key 'key' from local storage.
+
+<div id="q29"></div>
+
+## 29. How do you clear all data from local storage in JavaScript? [&uarr; Top](#top)
+To clear all data from local storage, you can use the localStorage.clear() method. For example, localStorage.clear(); will remove all key-value pairs from local storage
+
+<div id="q30"></div>
+
+## 30. What is the maximum amount of data that can be stored in local storage? [&uarr; Top](#top)
+The maximum amount of data that can be stored in local storage is typically around 5-10 MB, depending on the browser and device
+
+<div id="q31"></div>
+
+## 31. How do you check if local storage is available in JavaScript? [&uarr; Top](#top)
+Answer: To check if local storage is available, you can use the localStorage object. For example, if (typeof localStorage !== 'undefined') { /* local storage is available */ } will check if the localStorage object is defined.
+
+<div id="q32"></div>
+
+## 32. Is local storage secure in JavaScript? [&uarr; Top](#top)
+Local storage is not very secure in JavaScript, as the data can be accessed by any script running on the same domain. It is important to be careful when storing sensitive data in local storage and to encrypt the data if necessary
+
+<div id="q33"></div>
+
+## 33. What is the difference between cookies and local storage? [&uarr; Top](#top)
+Cookies are small text files that are stored on a user's device by a website, while local storage is a type of storage in JavaScript that allows web developers to store data directly in a user's browser. Cookies are typically used for authentication and tracking, while local storage is used for storing user-specific data such as preferences and settings.
+
+<div id="q34"></div>
+
+## 34. How can you ensure that local storage data is not lost if the user clears their browser cache? [&uarr; Top](#top)
+Local storage data is typically not cleared when a user clears their browser cache, but it may be cleared if the user clears their browser data or if the storage quota is exceeded. To ensure that local storage data is not lost, you can periodically backup the data to a server or use other storage options such as cookies or indexedDB
+
+<div id="q35"></div>
+
+## 35. How do you set an expiration date for local storage data in JavaScript? [&uarr; Top](#top)
+There is no built-in way to set an expiration date for local storage data in JavaScript, but you can manually check the age of the data and delete it if it is too old. Alternatively, you can use a third-party library or framework that provides this functionality
+
+
+<div id="q36"></div>
+
+## 36. What is the difference between synchronous and asynchronous storage operations in JavaScript? [&uarr; Top](#top)
+Synchronous storage operations in JavaScript block the main thread of the browser until the operation is complete, while asynchronous storage operations allow other code to continue running while the operation is being performed. Asynchronous storage operations are generally preferred because they provide a better user experience and prevent the browser from freezing or becoming unresponsive
+
+
+<div id="q37"></div>
+
+## 37. How do you handle errors when working with local storage in JavaScript? [&uarr; Top](#top)
+When working with local storage in JavaScript, you should always check for errors and handle them appropriately. Common errors include exceeding the storage quota, invalid data types, and security violations. You can use try-catch blocks or error handling functions to catch and handle these errors.
+
+<div id="q38"></div>
+
+## 38. How do you synchronize local storage data between multiple devices? [&uarr; Top](#top)
+Synchronizing local storage data between multiple devices can be challenging, as local storage data is specific to a single browser on a single device. To synchronize data between devices, you can use a server-side database or cloud storage service, or you can use a third-party library or framework that provides synchronization functionality
+
+<div id="q39"></div>
+
+## 39. What is browser caching and how does it work?  [&uarr; Top](#top)
+Browser caching is a process by which a browser stores a copy of a webpage or other web content on the user's device so that it can be quickly retrieved and displayed the next time the user visits the same page. When a user requests a page for the first time, the browser downloads all of the necessary resources (HTML, CSS, JavaScript, images, etc.) and stores them in its cache. The next time the user visits the same page, the browser checks its cache first and retrieves the resources from there if they have not expired or been modified
+
+
+<div id="q40"></div>
+
+## 40. What is the difference between first-party cookies and third-party cookies? [&uarr; Top](#top)
+First-party cookies are created and used by the website that the user is visiting, while third-party cookies are created and used by a domain other than the one that the user is visiting. Third-party cookies are often used for tracking and advertising purposes, and have been the subject of privacy concerns in recent years.
+
+<div id="q41"></div>
+
+## 41. How do you set and read cookies in JavaScript? [&uarr; Top](#top)
+To set a cookie in JavaScript, you can use the document.cookie property, which allows you to set a string in the format key=value. For example, document.cookie = 'username=john'; will set a cookie named 'username' with the value 'john'. To read a cookie, you can use the document.cookie property to get a string of all the cookies, and then parse the string to find the cookie you are looking for.
+
+<div id="q42"></div>
+
+## 42. How do you delete a cookie in JavaScript? [&uarr; Top](#top)
+To delete a cookie in JavaScript, you can set the cookie's expiration date to a date in the past. For example, document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC'; will delete the cookie named 'username'.
+
+<div id="q43"></div>
+
+## 43. What is the typeof operator in JavaScript and how is it used? [&uarr; Top](#top)
+The typeof operator is used to determine the type of a variable or expression in JavaScript. It returns a string indicating the data type of the operand. For example, typeof 'hello' would return the string 'string', while 'typeof 42' would return the string 'number'
+
+<div id="q44"></div>
+
+## 44. What is the 'in' operator in JavaScript and how is it used? [&uarr; Top](#top)
+The 'in' operator is used to determine if an object contains a property with a given name. It returns true if the property exists, and false otherwise. For example, 'name' in person would return true if the object person has a property named name
+
+<div id="q45"></div>
+
+## 45. What is the 'instanceof' operator in JavaScript and how is it used? [&uarr; Top](#top)
+The 'instanceof' operator is used to determine if an object is an instance of a particular class or constructor function. It returns true if the object is an instance of the specified class, and false otherwise. For example, myCar 'instanceof' Car would return true if myCar is an instance of the Car class.
+
+<div id="q46"></div>
+
+## 46. What is the delete operator in JavaScript and how is it used? [&uarr; Top](#top)
+The delete operator is used to remove a property from an object. It returns true if the property is successfully deleted, and false otherwise. For example, delete person.name would remove the name property from the person object.
+
+<div id="q47"></div>
+
+## 47. What is the typeof null in JavaScript? [&uarr; Top](#top)
+The typeof null is a quirk of JavaScript, and returns 'object'. This is because null is often used to represent an empty object, but is not actually an object itself.
+
+<div id="q48"></div>
+
+## 48. What is the void operator in JavaScript and how is it used? [&uarr; Top](#top)
+The void operator is used to evaluate an expression and return undefined. It is often used in situations where a statement needs to be evaluated but no value is needed or desired. For example, void console.log('Hello, world!') would log the string 'Hello, world!' to the console, but would return undefined
+
+<div id="q49"></div>
+
+## 49. What is the typeof NaN in JavaScript? [&uarr; Top](#top)
+The typeof NaN in JavaScript returns 'number', which can be confusing since NaN is not a valid number. NaN stands for "Not a Number", and is often the result of mathematical operations that do not have a valid result, such as dividing by zero or performing arithmetic with non-numeric values.
+
+<div id="q50"></div>
+
+## 50. How do you concatenate two strings in JavaScript?
+Answer: Two strings can be concatenated in JavaScript using the + operator. For example, var myString = 'hello' + 'world'; console.log(myString); will output 'helloworld'.
+
+<div id="q6"></div>
+
+## 51. How do you replace a substring within a string in JavaScript?
+Answer: A substring can be replaced within a string in JavaScript using the replace() method. For example, var myString = 'hello world'; console.log(myString.replace('world', 'universe')); will output 'hello universe'
+
+<div id="q6"></div>
+<div id="q6"></div>
+<div id="q6"></div>
+<div id="q6"></div>
+<div id="q6"></div>
+<div id="q6"></div>
+<div id="q6"></div>
+<div id="q6"></div>
+
+
+
