@@ -1,10 +1,5 @@
 
-
-What is the difference between call, apply and bind in JavaScript?
-
-
-
-#  Brush up your Javascript knowledge for your 2023 interview with this list of 70+ frequently asked questions
+#  Brush up your JavaScript knowledge for your 2023 interview with this list of 70+ frequently asked questions
 
 
 ## Table of Contents
