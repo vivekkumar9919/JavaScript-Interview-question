@@ -1,19 +1,10 @@
 
 
-
-
-
-
-
-
-
-local storage , session storage and cookies
-
 What is the difference between call, apply and bind in JavaScript?
 
 
 
-#  Brush up your Javascript knowledge for your 2023 interview with this list of 50+ frequently asked questions
+#  Brush up your Javascript knowledge for your 2023 interview with this list of 70+ frequently asked questions
 
 
 ## Table of Contents
@@ -70,27 +61,36 @@ What is the difference between call, apply and bind in JavaScript?
 - [49. What is the typeof NaN in JavaScript?  ](#q49)
 - [50. How do you concatenate two strings in JavaScript? ](#q50)
 - [51. How do you replace a substring within a string in JavaScript? ](#q51)
-- [52.  ](#q52)
-- [53.  ](#q53)
-- [54.  ](#q54)
-- [55.  ](#q55)
-- [56.  ](#q56)
-- [57.  ](#q57)
-- [58.  ](#q58)
-- [59.  ](#q59)
-- [61.  ](#q61)
-- [62.  ](#q62)
-- [63.  ](#q63)
-- [64.  ](#q64)
-- [65.  ](#q65)
-- [66.  ](#q66)
-- [67.  ](#q67)
-- [68.  ](#q68)
-- [69.  ](#q69)
-- [7.  ](#q7)
-- [6.  ](#q6)
-- [5.  ](#q5)
-- [5.  ](#q5)
+- [52. What is the DOM in JavaScript? ](#q52)
+- [53. How do you access an element in the DOM using JavaScript? ](#q53)
+- [54. What is the difference between innerHTML and textContent in JavaScript? ](#q54)
+- [55. What is the difference between the window object and the document object in the DOM? ](#q55)
+- [56. How do you get the value of a form element in the DOM using JavaScript? ](#q56)
+- [57. What is the difference between getElementsByClassName() and querySelectorAll() methods? ](#q57)
+- [58. How do you dynamically create an HTML table using JavaScript?  ](#q58)
+- [59. What is the difference between parentNode and parentElement in the DOM? ](#q59)
+- [60. How do you check if an element has a particular class using JavaScript? ](#q60)
+- [61. How do you check if an element is visible in the viewport using JavaScript? ](#q61)
+- [62. What is the difference between a transition and an animation? ](#q62)
+- [63. What is the difference between a linear and an ease-in-out transition timing function? ](#q63)
+- [64. What is the difference between the transform and the transition properties in CSS? ](#q64)
+- [65. How do you pause and resume a transition or animation using JavaScript? ](#q65)
+- [66. How do you perform form validation in JavaScript? ](#q66)
+- [67. How do you validate user input in JavaScript? ](#q67)
+- [68. How do you prevent SQL injection attacks in JavaScript? ](#q68)
+- [69. How do you validate email addresses in JavaScript? ](#q69)
+- [70. What is client-side validation in JavaScript? ](#q70)
+- [71. What is form validation using HTML5 validation attributes in JavaScript?  ](#q71)
+- [72. How do you prevent form submission if validation fails using JavaScript? ](#q72)
+- [73.  ](#q73)
+- [74.  ](#q74)
+- [75.  ](#q75)
+- [76.  ](#q76)
+- [77.  ](#q77)
+- [78.  ](#q78)
+- [79.  ](#q79)
+- [8.  ](#q8)
+
 
 
 
@@ -603,22 +603,128 @@ The typeof NaN in JavaScript returns 'number', which can be confusing since NaN 
 
 <div id="q50"></div>
 
-## 50. How do you concatenate two strings in JavaScript?
+## 50. How do you concatenate two strings in JavaScript? [&uarr; Top](#top)
 Answer: Two strings can be concatenated in JavaScript using the + operator. For example, var myString = 'hello' + 'world'; console.log(myString); will output 'helloworld'.
 
 <div id="q6"></div>
 
-## 51. How do you replace a substring within a string in JavaScript?
+## 51. How do you replace a substring within a string in JavaScript? [&uarr; Top](#top)
 Answer: A substring can be replaced within a string in JavaScript using the replace() method. For example, var myString = 'hello world'; console.log(myString.replace('world', 'universe')); will output 'hello universe'
 
-<div id="q6"></div>
-<div id="q6"></div>
-<div id="q6"></div>
-<div id="q6"></div>
-<div id="q6"></div>
-<div id="q6"></div>
-<div id="q6"></div>
-<div id="q6"></div>
+<div id="q52"></div>
+
+## 52. What is the DOM in JavaScript? [&uarr; Top](#top)
+The Document Object Model (DOM) is a programming interface for web documents that provides a hierarchical representation of the HTML or XML document. It allows programmers to access and manipulate the content and structure of a web page using JavaScript
+
+<div id="q53"></div>
+
+## 53. How do you access an element in the DOM using JavaScript? [&uarr; Top](#top)
+You can access an element in the DOM using JavaScript by using the document.getElementById() method, which returns a reference to the element with the specified ID.
+
+<div id="q54"></div>
+
+## 54. What is the difference between innerHTML and textContent in JavaScript? [&uarr; Top](#top)
+innerHTML sets or returns the HTML content inside an element, while textContent sets or returns the text content of an element, without any HTML tags.
+
+<div id="q55"></div>
+
+## 55. What is the difference between the window object and the document object in the DOM? [&uarr; Top](#top)
+The window object represents the browser window or frame, while the document object represents the web page that is loaded into the window or frame.
+
+<div id="q56"></div>
+
+## 56. How do you get the value of a form element in the DOM using JavaScript? [&uarr; Top](#top)
+Answer: You can get the value of a form element in the DOM using JavaScript by using the element.value property, which returns the current value of the element.
+
+<div id="q57"></div>
+
+## 57. What is the difference between getElementsByClassName() and querySelectorAll() methods? [&uarr; Top](#top)
+The getElementsByClassName() method returns a live HTMLCollection of elements with the specified class name, while the querySelectorAll() method returns a non-live NodeList of elements that match a specified CSS selector.
+
+<div id="q58"></div>
+
+## 58. How do you dynamically create an HTML table using JavaScript? [&uarr; Top](#top)
+You can dynamically create an HTML table using JavaScript by creating a new table element, adding rows and cells to it, and then appending it to the DOM.
+
+<div id="q59"></div>
+
+## 59. What is the difference between parentNode and parentElement in the DOM? [&uarr; Top](#top)
+The parentNode property returns the parent node of an element, while the parentElement property returns the parent element of an element. The difference is that the parentElement property returns null if the parent node is not an element node.
+
+<div id="q60"></div>
+
+## 60. How do you check if an element has a particular class using JavaScript? [&uarr; Top](#top)
+You can check if an element has a particular class using JavaScript by using the element.classList.contains() method, which returns true if the element has the specified class
+
+<div id="q61"></div>
+
+## 61. How do you check if an element is visible in the viewport using JavaScript? [&uarr; Top](#top)
+You can check if an element is visible in the viewport using JavaScript by comparing the element's bounding rectangle with the viewport's bounding rectangle using the element.getBoundingClientRect() method.
+
+<div id="q62"></div>
+
+## 62. What is the difference between a transition and an animation? [&uarr; Top](#top)
+A transition is a way to animate a property change of an element over a period of time, while an animation is a way to animate an element by defining a set of keyframes and applying them to the element over a period of time.
+
+<div id="q63"></div>
+
+## 63. What is the difference between a linear and an ease-in-out transition timing function? [&uarr; Top](#top)
+A linear transition timing function causes the transition to occur at a constant rate, while an ease-in-out transition timing function starts slow, speeds up in the middle, and then slows down again at the end.
+
+<div id="q64"></div>
+
+## 64. What is the difference between the transform and the transition properties in CSS? [&uarr; Top](#top)
+The transform property applies a 2D or 3D transformation to an element, while the transition property specifies the transition properties for an element, such as the duration and timing function.
+
+<div id="q65"></div>
+
+## 65. How do you pause and resume a transition or animation using JavaScript? [&uarr; Top](#top)
+You can pause and resume a transition or animation using JavaScript by adding or removing a CSS class that has been set up to pause or resume the animation.
+
+<div id="q66"></div>
+
+## 66. How do you perform form validation in JavaScript? [&uarr; Top](#top)
+You can perform form validation in JavaScript by using the submit event to check the form data, and displaying error messages if the data is invalid.
+
+<div id="q67"></div>
+
+## 67. How do you validate user input in JavaScript? [&uarr; Top](#top)
+You can validate user input in JavaScript by using conditional statements and regular expressions to check if the input meets certain criteria, such as being the correct data type or format.
+
+<div id="q68"></div>
+
+## 68. How do you prevent SQL injection attacks in JavaScript? [&uarr; Top](#top)
+You can prevent SQL injection attacks in JavaScript by using prepared statements and parameterized queries, and by escaping special characters in user input.
+
+<div id="q69"></div>
+
+## 69. How do you validate email addresses in JavaScript? [&uarr; Top](#top)
+You can validate email addresses in JavaScript using regular expressions to check if the address is in the correct format, such as having an @ symbol and a domain name.
+
+<div id="q70"></div>
+
+## 70. What is client-side validation in JavaScript? [&uarr; Top](#top)
+Client-side validation is the process of validating user input on the client-side, before the form is submitted to the server.
+
+<div id="q71"></div>
+
+## 71. What is form validation using HTML5 validation attributes in JavaScript? [&uarr; Top](#top)
+Form validation using HTML5 validation attributes is the process of using built-in HTML5 attributes, such as required, pattern, and min/max, to validate user input on the client-side
+
+<div id="q72"></div>
+
+## 72. How do you prevent form submission if validation fails using JavaScript? [&uarr; Top](#top)
+You can prevent form submission if validation fails using JavaScript by using the preventDefault() method on the event object, which will stop the form from being submitted to the server.
+
+<div id="q73"></div>
+<div id="q74"></div>
+<div id="q75"></div>
+<div id="q76"></div>
+<div id="q77"></div>
+<div id="q78"></div>
+<div id="q79"></div>
+<div id="q8"></div>
+
 
 
 
