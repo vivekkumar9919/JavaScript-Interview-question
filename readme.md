@@ -77,14 +77,14 @@
 - [70. What is client-side validation in JavaScript? ](#q70)
 - [71. What is form validation using HTML5 validation attributes in JavaScript?  ](#q71)
 - [72. How do you prevent form submission if validation fails using JavaScript? ](#q72)
-- [73.  ](#q73)
+<!-- - [73.  ](#q73)
 - [74.  ](#q74)
 - [75.  ](#q75)
 - [76.  ](#q76)
 - [77.  ](#q77)
 - [78.  ](#q78)
 - [79.  ](#q79)
-- [8.  ](#q8)
+- [8.  ](#q8) -->
 
 
 
