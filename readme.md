@@ -1,5 +1,5 @@
 
-#  Brush up your JavaScript knowledge for your 2023 interview with this list of 70+ frequently asked questions
+#  Brush up your JavaScript knowledge for your 2023 interview with this list of 80+ frequently asked questions
 
 
 ## Table of Contents
@@ -77,14 +77,24 @@
 - [70. What is client-side validation in JavaScript? ](#q70)
 - [71. What is form validation using HTML5 validation attributes in JavaScript?  ](#q71)
 - [72. How do you prevent form submission if validation fails using JavaScript? ](#q72)
-<!-- - [73.  ](#q73)
-- [74.  ](#q74)
-- [75.  ](#q75)
-- [76.  ](#q76)
-- [77.  ](#q77)
-- [78.  ](#q78)
-- [79.  ](#q79)
-- [8.  ](#q8) -->
+- [73. What is a Promise in JavaScript? ](#q73)
+- [74. What are the states of a Promise? ](#q74)
+- [75. How do you create a Promise in JavaScript? ](#q75)
+- [76. How do you handle a successful Promise? ](#q76)
+- [77. How do you handle a failed Promise? ](#q77)
+- [78. How do you handle multiple Promises simultaneously? ](#q78)
+- [79. What is the difference between Promise.all() and Promise.race()? ](#q79)
+- [80. What is Promise chaining? ](#q80)
+- [81. What is the difference between Promises and callbacks? ](#q81)
+- [82. How do you convert a callback function to a Promise? ](#q82)
+- [83. What is the difference between a synchronous and asynchronous callback in JavaScript? ](#q83)
+- [84.  ](#q84)
+- [85.  ](#q85)
+- [86.  ](#q86)
+- [87.  ](#q87)
+- [88.  ](#q88)
+- [89.  ](#q89)
+- [9.  ](#q9)
 
 
 
@@ -712,13 +722,67 @@ Form validation using HTML5 validation attributes is the process of using built-
 You can prevent form submission if validation fails using JavaScript by using the preventDefault() method on the event object, which will stop the form from being submitted to the server.
 
 <div id="q73"></div>
+
+## 73. What is a Promise in JavaScript? [&uarr; Top](#top)
+A Promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+
 <div id="q74"></div>
+
+## 74. What are the states of a Promise? [&uarr; Top](#top)
+A Promise can be in one of three states: Pending (initial state), Fulfilled (meaning the operation completed successfully), or Rejected (meaning it failed).
+
 <div id="q75"></div>
+
+## 75. How do you create a Promise in JavaScript? [&uarr; Top](#top)
+You can create a Promise using the Promise constructor function and passing in a function with two arguments: resolve and reject.
+
 <div id="q76"></div>
+
+## 76. How do you handle a successful Promise? [&uarr; Top](#top)
+You can handle a successful Promise using the .then() method, which takes a callback function as its argument.
+
 <div id="q77"></div>
+
+## 77. How do you handle a failed Promise? [&uarr; Top](#top)
+You can handle a failed Promise using the .catch() method, which takes a callback function as its argument.
+
 <div id="q78"></div>
+
+## 78. How do you handle multiple Promises simultaneously? [&uarr; Top](#top)
+You can handle multiple Promises simultaneously using Promise.all() or Promise.race() methods.
+
 <div id="q79"></div>
-<div id="q8"></div>
+
+## 79. What is the difference between Promise.all() and Promise.race()? [&uarr; Top](#top)
+
+<div id="q80"></div>
+
+## 80. What is Promise chaining? [&uarr; Top](#top)
+Promise chaining is the practice of using the return value of one Promise as the input for another, allowing you to chain multiple asynchronous operations together.
+
+<div id="q81"></div>
+
+## 81. What is the difference between Promises and callbacks? [&uarr; Top](#top)
+Promises are more powerful and flexible than callbacks because they can handle both success and failure, can be chained, and have methods for handling multiple Promises at once.
+
+<div id="q82"></div>
+
+## 82. How do you convert a callback function to a Promise? [&uarr; Top](#top)
+You can convert a callback function to a Promise using the Promise constructor and wrapping the callback in a Promise.
+
+<div id="q83"></div>
+
+## 83. What is the difference between a synchronous and asynchronous callback in JavaScript?	[&uarr; Top](#top)
+A synchronous callback is executed immediately by the calling function and blocks further execution until it is complete. An asynchronous callback is executed later, after some other operation has completed, and does not block further execution. Asynchronous callbacks are often used for non-blocking operations, such as AJAX requests or timeouts.
+
+<div id="q84"></div>
+<div id="q85"></div>
+<div id="q86"></div>
+<div id="q87"></div>
+<div id="q88"></div>
+<div id="q89"></div>
+<div id="q90"></div>
+<div id="q91"></div>
 
 
 
