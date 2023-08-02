@@ -88,10 +88,10 @@
 - [81. What is the difference between Promises and callbacks? ](#q81)
 - [82. How do you convert a callback function to a Promise? ](#q82)
 - [83. What is the difference between a synchronous and asynchronous callback in JavaScript? ](#q83)
-- [84.  ](#q84)
-- [85.  ](#q85)
-- [86.  ](#q86)
-- [87.  ](#q87)
+- [84. How many types of error in javascript? ](#q84)
+- [85. Difference between undefined and not defined ? ](#q85)
+- [86. What is Template literal in javascript? ](#q86)
+- [87. What is polyfill? ](#q87)
 - [88.  ](#q88)
 - [89.  ](#q89)
 - [9.  ](#q9)
@@ -724,7 +724,14 @@ You can prevent form submission if validation fails using JavaScript by using th
 <div id="q73"></div>
 
 ## 73. What is a Promise in JavaScript? [&uarr; Top](#top)
-A Promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+In JavaScript, a Promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. Promises were introduced in ECMAScript 2015 (ES6) to simplify asynchronous programming and make it easier to handle complex asynchronous operations, such as fetching data from a server or reading files.
+
+A Promise can be in one of three states:
+
+**Pending:** The initial state when the Promise is created and the asynchronous operation is still ongoing.
+**Fulfilled:** The state when the asynchronous operation is successful, and the Promise resolves with a value.
+**Rejected:** The state when the asynchronous operation encounters an error or fails, and the Promise rejects with a reason (error).
+A Promise can transition from pending to either fulfilled or rejected but cannot change its state once settled (fulfilled or rejected).
 
 <div id="q74"></div>
 
@@ -734,26 +741,97 @@ A Promise can be in one of three states: Pending (initial state), Fulfilled (mea
 <div id="q75"></div>
 
 ## 75. How do you create a Promise in JavaScript? [&uarr; Top](#top)
-You can create a Promise using the Promise constructor function and passing in a function with two arguments: resolve and reject.
+n JavaScript, you can create a Promise using the Promise constructor. The Promise constructor takes a single argument, which is a function called the "executor." The executor function takes two parameters: resolve and reject. These parameters are functions that you call to either fulfill the Promise (resolve) or reject it (reject).
+
+Here's the basic syntax for creating a Promise.
+```
+const myPromise = new Promise((resolve, reject) => {
+  // Asynchronous operation or task here
+  // If the operation is successful, call 'resolve' with the result
+  // If there is an error, call 'reject' with an error object or message
+});
+
+```
 
 <div id="q76"></div>
 
 ## 76. How do you handle a successful Promise? [&uarr; Top](#top)
-You can handle a successful Promise using the .then() method, which takes a callback function as its argument.
+To handle a successful Promise, you use the .then() method. The .then() method is used to specify a callback function that will be executed when the Promise is fulfilled (resolved) successfully. The function inside .then() will receive the resolved value as its argument.
+```
+myPromise.then((resolvedValue) => {
+  // Code to handle the successful resolution
+});
+
+```
 
 <div id="q77"></div>
 
 ## 77. How do you handle a failed Promise? [&uarr; Top](#top)
-You can handle a failed Promise using the .catch() method, which takes a callback function as its argument.
+To handle a failed Promise, you use the .catch() method. The .catch() method is used to specify a callback function that will be executed when the Promise is rejected. The function inside .catch() will receive the reason for the rejection (usually an error) as its argument.
+
+Here's the basic syntax for handling a failed Promise using .catch():
+```
+myPromise.catch((error) => {
+  // Code to handle the error or rejection reason
+});
+
+```
 
 <div id="q78"></div>
 
 ## 78. How do you handle multiple Promises simultaneously? [&uarr; Top](#top)
-You can handle multiple Promises simultaneously using Promise.all() or Promise.race() methods.
+Handling multiple Promises simultaneously is a common scenario in asynchronous programming when you need to execute multiple asynchronous operations in parallel and wait for all of them to complete before performing further actions. JavaScript provides several approaches to handle multiple Promises simultaneously:
+
+**Promise.all():** The Promise.all() method takes an array of Promises as its argument and returns a new Promise that is fulfilled with an array of resolved values when all the input Promises are fulfilled. If any of the input Promises is rejected, the returned Promise will be rejected with the reason of the first rejected Promise.
+```
+const promise1 = fetchDataFromAPI1();
+const promise2 = fetchDataFromAPI2();
+const promise3 = fetchDataFromAPI3();
+
+Promise.all([promise1, promise2, promise3])
+  .then((results) => {
+    // All Promises fulfilled, and results is an array containing the resolved values
+    console.log('Data fetched successfully:', results);
+  })
+  .catch((error) => {
+    // If any of the Promises is rejected, this block will handle the error
+    console.error('Error fetching data:', error.message);
+  });
+
+```
+**Promise.allSettled():** The Promise.allSettled() method is similar to Promise.all(), but it waits for all the input Promises to settle (fulfilled or rejected) before returning a Promise. The resulting Promise is fulfilled with an array of objects, each representing the outcome of the corresponding input Promise.
+```
+const promise1 = fetchDataFromAPI1();
+const promise2 = fetchDataFromAPI2();
+const promise3 = fetchDataFromAPI3();
+
+Promise.allSettled([promise1, promise2, promise3])
+  .then((results) => {
+    // All Promises settled, and results is an array containing objects with status and value/reason
+    console.log('Results:', results);
+  });
+
+```
+**Promise.race():** The Promise.race() method takes an array of Promises as its argument and returns a new Promise that is fulfilled or rejected with the value or reason of the first settled Promise (either fulfilled or rejected).
+```
+const promise1 = fetchDataFromAPI1();
+const promise2 = fetchDataFromAPI2();
+const promise3 = fetchDataFromAPI3();
+
+Promise.race([promise1, promise2, promise3])
+  .then((result) => {
+    // The first Promise to settle (fulfilled or rejected) will be handled here
+    console.log('First Promise settled:', result);
+  });
+
+```
 
 <div id="q79"></div>
 
 ## 79. What is the difference between Promise.all() and Promise.race()? [&uarr; Top](#top)
+**Promise.all()** waits for all input Promises to fulfill before resolving its returned Promise or rejecting it if any of the input Promises is rejected.
+
+**Promise.race()** resolves or rejects its returned Promise with the value or reason of the first settled Promise (the first Promise to fulfill or reject) in the input array.
 
 <div id="q80"></div>
 
@@ -768,7 +846,40 @@ Promises are more powerful and flexible than callbacks because they can handle b
 <div id="q82"></div>
 
 ## 82. How do you convert a callback function to a Promise? [&uarr; Top](#top)
-You can convert a callback function to a Promise using the Promise constructor and wrapping the callback in a Promise.
+To convert a callback function to a Promise, you can wrap the callback-based function in a new function that returns a Promise. This process is called "promisification." The basic idea is to create a new Promise and use the callback function's success and error paths (i.e., the callback's resolve and reject) to fulfill or reject the Promise.
+
+Here's the general approach:
+
+- Create a new function that takes the same arguments as the original callback function.
+- Inside the new function, return a new Promise.
+- Within the Promise executor function, call the original callback function with appropriate resolve and reject handlers.
+- Handle the successful or error outcome in the resolve and reject handlers and fulfill or reject the Promise accordingly.
+
+Let's convert a callback-based function, fetchDataWithCallback, to a Promise-based function, fetchDataWithPromise:
+```
+// Callback-based function
+function fetchDataWithCallback(callback) {
+  // Simulating an asynchronous operation
+  setTimeout(() => {
+    const data = { name: 'John', age: 30 };
+    callback(null, data); // Call the callback with the result (null for error)
+  }, 2000);
+}
+
+// Promise-based function (promisification)
+function fetchDataWithPromise() {
+  return new Promise((resolve, reject) => {
+    fetchDataWithCallback((error, data) => {
+      if (error) {
+        reject(error); // Reject the Promise with the error from the callback
+      } else {
+        resolve(data); // Resolve the Promise with the data from the callback
+      }
+    });
+  });
+}
+
+```
 
 <div id="q83"></div>
 
@@ -776,9 +887,51 @@ You can convert a callback function to a Promise using the Promise constructor a
 A synchronous callback is executed immediately by the calling function and blocks further execution until it is complete. An asynchronous callback is executed later, after some other operation has completed, and does not block further execution. Asynchronous callbacks are often used for non-blocking operations, such as AJAX requests or timeouts.
 
 <div id="q84"></div>
+
+## 84. How many types of error in javascript? [&uarr; Top](#top)
+In JavaScript, there are several types of errors that can occur during the execution of a program. These errors are called "runtime errors" or "exceptions," and they indicate that something unexpected or incorrect has happened during the program's execution. Some common types of errors in JavaScript include:
+
+**SyntaxError:** This occurs when the code has a syntax error, such as missing parentheses, semicolons, or other syntax rules violations.
+
+**ReferenceError:** This occurs when the code tries to access a variable or function that does not exist or is not in scope.
+
+**TypeError:** This occurs when the code attempts to perform an operation on a value of an inappropriate data type or when trying to access properties or methods on non-object values.
+
+**RangeError:** This occurs when a numeric value is not in the expected range. For example, calling a function with too many arguments or using an invalid array length.
+
+**EvalError:** This error is deprecated and was used when there was an issue with the eval() function.
+
+**InternalError:** This represents an error that occurs internally in the JavaScript engine, usually when a limit is exceeded, such as the maximum call stack size in recursive functions.
+
+**URIError:** This occurs when encoding or decoding functions (e.g., encodeURIComponent, decodeURIComponent, encodeURI, decodeURI) encounter invalid characters or incorrect use.
+
+**Network Errors:** These are errors that occur when trying to fetch resources from external servers using XMLHttpRequest or Fetch API. Examples include 'NetworkError', 'TypeError', 'AbortError', etc
+
 <div id="q85"></div>
+
+## 85. Difference between undefined and not defined ? [&uarr; Top](#top)
+**Undefined:** When a variable or identifier is declared but has not been assigned a value, it is said to have the value of "undefined." This means that the variable exists in the current scope, but it does not have any meaningful value assigned to it yet
+
+**Not Defined:** When you attempt to access a variable or identifier that has not been declared in the current scope or any enclosing scope, it is said to be "not defined." This means that the variable does not exist in the program's scope.
+
 <div id="q86"></div>
+
+## 86. What is Template literal in javascript? [&uarr; Top](#top)
+Template literals, introduced in ECMAScript 2015 (ES6), are a feature in JavaScript that allows you to create strings with embedded expressions. They are denoted using backticks ( ) instead of single or double quotes.
+
+The syntax of a template literal is as follows:
+```
+const variable = 'value';
+const templateLiteral = `This is a template literal with ${variable} inside it.`;
+
+```
 <div id="q87"></div>
+
+## 87. What is polyfill? [&uarr; Top](#top)
+A "polyfill" in JavaScript is a piece of code (usually a JavaScript library or script) that provides modern functionality to older browsers or environments that do not support certain features of the latest JavaScript language or APIs. The term "polyfill" is a combination of "poly" (meaning many) and "fill," implying that it fills the gaps in functionality for older browsers.
+
+When new features are introduced in JavaScript or web APIs, not all browsers may support them immediately. This can cause compatibility issues and prevent developers from using these new features in their code. Polyfills help bridge this gap by implementing the missing functionality using JavaScript, so that developers can use the latest features regardless of whether the browser natively supports them.
+
 <div id="q88"></div>
 <div id="q89"></div>
 <div id="q90"></div>
