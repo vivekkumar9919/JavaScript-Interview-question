@@ -92,8 +92,19 @@
 - [85. Difference between undefined and not defined ? ](#q85)
 - [86. What is Template literal in javascript? ](#q86)
 - [87. What is polyfill? ](#q87)
-- [88.  ](#q88)
-- [89.  ](#q89)
+- [88. Give an example of an Anonymous function? ](#q88)
+- [89. What is Prototype Property? Explain with an Example. ](#q89)
+- [90. Give a list of the various ways using which an HTML element can be accessed within a JavaScript code? ](#q90)
+- [91. Which keyword can be used to deploy inheritance in ES6?  ](#q91)
+- [92. What's the difference between a function expression and function declaration? ](#q92)
+- [93.  ](#q93)
+- [94.  ](#q94)
+- [95.  ](#q95)
+- [96.  ](#q96)
+- [97.  ](#q97)
+- [98.  ](#q98)
+- [99.  ](#q99)
+- [9.  ](#q9)
 - [9.  ](#q9)
 
 
@@ -933,9 +944,148 @@ A "polyfill" in JavaScript is a piece of code (usually a JavaScript library or s
 When new features are introduced in JavaScript or web APIs, not all browsers may support them immediately. This can cause compatibility issues and prevent developers from using these new features in their code. Polyfills help bridge this gap by implementing the missing functionality using JavaScript, so that developers can use the latest features regardless of whether the browser natively supports them.
 
 <div id="q88"></div>
+
+## 88. Give an example of an Anonymous function? [&uarr; Top](#top)
+```
+// Using an anonymous function as a callback
+setTimeout(function() {
+  console.log("This is an anonymous function being used as a callback.");
+}, 1000);
+
+// Using an anonymous function as a function expression
+const addNumbers = function(a, b) {
+  return a + b;
+};
+
+console.log(addNumbers(5, 10)); // Output: 15
+
+```
 <div id="q89"></div>
+
+## 89. What is Prototype Property? Explain with an Example. [&uarr; Top](#top)
+In JavaScript, every object has a special property called prototype, which allows objects to inherit properties and methods from other objects. The prototype property is used in the concept of prototypal inheritance, where objects can share common behavior through their prototypes.
+
+Here's an example to illustrate the prototype property.
+```
+// Constructor function for creating Person objects
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+// Adding a method to the prototype of the Person constructor
+Person.prototype.sayHello = function() {
+  console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+};
+
+// Creating two Person objects using the 'new' keyword
+const person1 = new Person('Alice', 30);
+const person2 = new Person('Bob', 25);
+
+// Calling the sayHello method on both objects
+person1.sayHello(); // Output: Hello, my name is Alice and I am 30 years old.
+person2.sayHello(); // Output: Hello, my name is Bob and I am 25 years old.
+
+```
 <div id="q90"></div>
+
+## 90. Give a list of the various ways using which an HTML element can be accessed within a JavaScript code? [&uarr; Top](#top)
+In JavaScript, there are several ways to access an HTML element from within your code. Here's a list of some common methods to do so
+
+**getElementById:** This method retrieves an element by its unique ID attribute
+```
+const elementById = document.getElementById('elementId');
+
+```
+**querySelector:** This method uses a CSS selector to select the first matching element.
+```
+const elementByQuery = document.querySelector('css-selector');
+```
+**querySelectorAll:** This method selects all elements that match the given CSS selector and returns them in a NodeList (a collection similar to an array).
+```
+const elementsByQueryAll = document.querySelectorAll('css-selector');
+```
+**getElementsByClassName**: This method returns a collection of elements that have a specific class name.
+```
+const elementsByClassName = document.getElementsByClassName('className');
+```
+**getElementsByTagName:** This method returns a collection of elements that have a specific tag name.
+```
+const elementsByTagName = document.getElementsByTagName('tagName');
+```
+**getElementsByName:** This method returns a collection of elements with a specific name attribute
+```
+const elementsByName = document.getElementsByName('elementName');
+```
 <div id="q91"></div>
+
+## 91. Which keyword can be used to deploy inheritance in ES6? [&uarr; Top](#top)
+In ES6 (ECMAScript 2015) and later versions of JavaScript, the class keyword is used to deploy inheritance and create class-based objects with the concept of prototypal inheritance. ES6 introduced a more familiar and object-oriented syntax for creating classes and implementing inheritance.
+
+Here's an example of how inheritance is achieved using the class keyword:
+```
+// Parent class
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  makeSound() {
+    console.log("Some generic sound");
+  }
+}
+
+// Child class inheriting from the Animal class
+class Dog extends Animal {
+  constructor(name, breed) {
+    super(name); // Call the constructor of the parent class using 'super'
+    this.breed = breed;
+  }
+
+  makeSound() {
+    console.log("Woof woof!"); // Overriding the makeSound method of the parent class
+  }
+}
+
+// Creating objects using the classes
+const animal = new Animal("Generic Animal");
+const dog = new Dog("Buddy", "Labrador");
+
+console.log(animal.name); // Output: Generic Animal
+animal.makeSound(); // Output: Some generic sound
+
+console.log(dog.name); // Output: Buddy
+console.log(dog.breed); // Output: Labrador
+dog.makeSound(); // Output: Woof woof!
+```
+<div id="q92"></div>
+
+## 92. What's the difference between a function expression and function declaration? [&uarr; Top](#top)
+Function expression and function declaration are two different ways of creating functions in JavaScript. The main difference lies in how and when they are defined and hoisted in the code.
+
+**Function Declaration:**
+A function declaration is a statement that defines a named function using the function keyword. It has the following syntax:
+```
+function functionName(parameters) {
+  // Function body
+  // Code logic
+  return something;
+}
+
+```
+**Function Expression:**
+A function expression, on the other hand, is an assignment of a function to a variable. It has the following syntax
+```
+const functionName = function(parameters) {
+  // Function body
+  // Code logic
+  return something;
+};
+
+```
+<div id="q93"></div>
+<div id="q94"></div>
+<div id="q95"></div>
 
 
 
