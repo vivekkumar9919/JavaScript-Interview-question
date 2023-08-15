@@ -97,7 +97,7 @@
 - [90. Give a list of the various ways using which an HTML element can be accessed within a JavaScript code? ](#q90)
 - [91. Which keyword can be used to deploy inheritance in ES6?  ](#q91)
 - [92. What's the difference between a function expression and function declaration? ](#q92)
-- [93.  ](#q93)
+- [93. Explain the difference between Object.freeze() vs const? ](#q93)
 - [94.  ](#q94)
 - [95.  ](#q95)
 - [96.  ](#q96)
@@ -1084,6 +1084,27 @@ const functionName = function(parameters) {
 
 ```
 <div id="q93"></div>
+
+## 93. Explain the difference between Object.freeze() vs const? [&uarr; Top](#top)
+**const Keyword:**
+The const keyword is used to declare variables with constant values. It ensures that the value of the variable cannot be reassigned after its initial assignment. This applies to primitive values as well as object references. However, const does not prevent the properties of an object from being modified if the object itself is mutable.
+
+Example:
+```
+const x = 5; // x is a constant
+const obj = { key: "value" };
+obj.key = "new value"; // This is allowed
+```
+**Object.freeze():**
+Object.freeze() is a method provided by JavaScript that allows you to freeze an object, making it immutable. Once an object is frozen, its properties cannot be added, modified, or removed. Any attempts to modify a frozen object or its properties will result in an error (in strict mode) or be silently ignored (in non-strict mode).
+
+Example
+```
+const obj = { key: "value" };
+Object.freeze(obj);
+obj.key = "new value"; // This won't modify the object and will have no effect
+```
+
 <div id="q94"></div>
 <div id="q95"></div>
 
