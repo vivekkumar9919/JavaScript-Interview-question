@@ -181,7 +181,7 @@ Synchronous code is executed in a sequential manner, where each line of code mus
 
 ## 10. What is the difference between null and undefined in JavaScript?[&uarr; Top](#top)
 **undefined** is a primitive data type that is automatically assigned to a variable that has been declared but not yet assigned a value. It is also the default return value of a function that does not return a value. For example:
-```
+```javascript
 let x;
 console.log(x); // Output: undefined
 
@@ -190,7 +190,7 @@ console.log(foo()); // Output: undefined
 
 ```
 On the other hand, **null** is a value that represents the intentional absence of any object value. It is often used to indicate that a variable has no value, or that a function should return no value. For example:
-```
+```javascript
 let y = null;
 console.log(y); // Output: null
 
@@ -207,7 +207,7 @@ console.log(bar()); // Output: null
 In JavaScript, functions are considered first-class citizens, which means that they can be treated like any other value. This includes being assigned to variables, passed as arguments to other functions, and returned as values from functions. A function that can be assigned to a variable, passed as an argument, or returned from a function is called a first-class function.
 
 Here is an example of a first-class function in JavaScript:
-```
+```javascript
 function add(a, b) {
   return a + b;
 }
@@ -227,7 +227,7 @@ const newResult = sum(4, 5); // newResult is 9
 In JavaScript, a higher-order function is a function that takes one or more functions as arguments, and/or returns a function as its result. Higher-order functions are a powerful feature of the language, as they enable functional programming paradigms and allow for code that is more modular, reusable, and expressive.
 
 Here is an example of a higher-order function in JavaScript:
-```
+```javascript
 function multiplyBy(factor) {
   return function(number) {
     return number * factor;
@@ -248,7 +248,7 @@ console.log(triple(5)); // 15
 In JavaScript, a first-order function is a function that doesn't take any functions as arguments and doesn't return a function as its result. In other words, a first-order function is a simple function that takes only primitive data types (like strings, numbers, and booleans) as arguments and returns a value of a primitive data type.
 
 Here's an example of a first-order function in JavaScript:
-```
+```javascript
 function addNumbers(a, b) {
   return a + b;
 }
@@ -259,14 +259,14 @@ function addNumbers(a, b) {
 
 ## 14. What is the difference between parameter and argument in JavaScript?
 A **parameter** is a named variable in a function definition that receives a value when the function is called. Parameters are used to define the inputs that a function expects to receive. For example, in the following function definition, "x" and "y" are parameters:
-```
+```javascript
 function add(x, y) {
   return x + y;
 }
 
 ```
 An **argument** is a value that is passed to a function when it is called. Arguments are used to supply the inputs that a function expects to receive. For example, in the following function call, "2" and "3" are arguments:
-```
+```javascript
 add(2, 3);
 
 ```
@@ -295,7 +295,7 @@ Callbacks are a fundamental concept in JavaScript, and they are used extensively
 
 ## 17. What is difference conformation box and alert box? [&uarr; Top](#top)
 A confirmation box, also known as a confirm box, is used to ask the user for confirmation before proceeding with an action. It typically displays a message and two buttons, usually labeled "OK" and "Cancel". When the user clicks "OK", the confirm box returns a value of true, while clicking "Cancel" returns a value of false. Here's an example:
-```
+```javascript
 if (confirm("Are you sure you want to delete this item?")) {
   // Delete the item
 } else {
@@ -304,7 +304,7 @@ if (confirm("Are you sure you want to delete this item?")) {
 
 ```
 An alert box, on the other hand, is used to display a message to the user. It typically has only one button, labeled "OK". When the user clicks "OK", the alert box is dismissed. Here's an example:
-```
+```javascript
 alert("Your message has been sent!");
 
 ```
@@ -314,13 +314,13 @@ alert("Your message has been sent!");
 ## 18. What is the difference between shift and unshift in JavaScript? [&uarr; Top](#top)
 **shift()** method removes the first element from an array and returns it. This means that the array is modified and its length is reduced by one.
 Here's an example:
-```
+```javascript
 const arr = [1, 2, 3];
 const firstElement = arr.shift(); // firstElement = 1, arr = [2, 3]
 
 ```
 **unshift()** method adds one or more elements to the beginning of an array and returns the new length of the array. This means that the original array is modified and new elements are added to the beginning of the array.
-```
+```javascript
 const arr = [2, 3];
 const newLength = arr.unshift(1); // newLength = 3, arr = [1, 2, 3]
 
@@ -332,7 +332,7 @@ const newLength = arr.unshift(1); // newLength = 3, arr = [1, 2, 3]
 
 **slice()** method returns a new array that contains a copy of a portion of the original array. The original array is not modified.
 Here's an example:
-```
+```javascript
 const arr = [1, 2, 3, 4, 5];
 const sliced = arr.slice(1, 4); // sliced = [2, 3, 4], arr = [1, 2, 3, 4, 5]
 
@@ -341,7 +341,7 @@ const sliced = arr.slice(1, 4); // sliced = [2, 3, 4], arr = [1, 2, 3, 4, 5]
 
 splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements. This means that the original array is modified.
 Here's an example:
-```
+```javascript
 const arr = [1, 2, 3, 4, 5];
 const spliced = arr.splice(2, 2, 6, 7); // spliced = [3, 4], arr = [1, 2, 6, 7, 5]
 
@@ -354,7 +354,7 @@ In JavaScript, both rest and spread are features of the ES6 (ECMAScript 2015) sp
 
 **Rest** is used to represent an indefinite number of arguments as an array. It is denoted by an ellipsis ... before the name of a parameter in a function definition, indicating that any number of additional arguments can be passed in as an array.
 Here's an example:
-```
+```javascript
 function sum(...numbers) {
   return numbers.reduce((total, number) => total + number);
 }
@@ -363,7 +363,7 @@ sum(1, 2, 3, 4); // returns 10
 
 ```
 **Spread** is used to spread the elements of an array or an object into another array or object. It is also denoted by an ellipsis ..., but in this case it is used before an array or an object to spread its elements.
-```
+```javascript
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
 const mergedArray = [...arr1, ...arr2]; // mergedArray = [1, 2, 3, 4, 5, 6]
@@ -378,7 +378,7 @@ In JavaScript, when you create a copy of an object or an array, there are two wa
 
 **Shallow copy** creates a new object or array, but its properties or elements still point to the same memory location as the original object or array. This means that changes made to the original object or array will also affect the copied object or array.
 Here's an example:
-```
+```javascript
 const original = {a: {b: 1}};
 const copied = Object.assign({}, original);
 
@@ -392,7 +392,7 @@ In the above example, copied is a shallow copy of original, so changes made to t
 
 **Deep copy** creates a new object or array and also copies all nested objects or arrays, so that the copied object or array is completely independent from the original object or array.
 Here's an example:
-```
+```javascript
 const original = {a: {b: 1}};
 const copied = JSON.parse(JSON.stringify(original));
 
@@ -416,7 +416,7 @@ Here are the differences between them:
 
 **call:**
 The call() method allows you to call a function with a given this value and arguments provided as a list (comma-separated). Here's an example:
-```
+```javascript
 const person = {
   name: "John",
   age: 30,
@@ -437,7 +437,7 @@ In the above example, call() is used to call the greet() function with the emplo
 
 **apply:**
 The apply() method is similar to call(), but the arguments are passed in as an array. Here's an example:
-```
+```javascript
 const numbers = [1, 2, 3, 4, 5];
 
 const sum = function() {
@@ -453,7 +453,7 @@ In the above example, apply() is used to call the sum() function with the number
 
 **bind:**
 The bind() method returns a new function with the this value and some arguments pre-set. Here's an example:
-```
+```javascript
 const person = {
   name: "John",
   age: 30,
@@ -755,7 +755,7 @@ A Promise can be in one of three states: Pending (initial state), Fulfilled (mea
 n JavaScript, you can create a Promise using the Promise constructor. The Promise constructor takes a single argument, which is a function called the "executor." The executor function takes two parameters: resolve and reject. These parameters are functions that you call to either fulfill the Promise (resolve) or reject it (reject).
 
 Here's the basic syntax for creating a Promise.
-```
+```javascript
 const myPromise = new Promise((resolve, reject) => {
   // Asynchronous operation or task here
   // If the operation is successful, call 'resolve' with the result
@@ -768,7 +768,7 @@ const myPromise = new Promise((resolve, reject) => {
 
 ## 76. How do you handle a successful Promise? [&uarr; Top](#top)
 To handle a successful Promise, you use the .then() method. The .then() method is used to specify a callback function that will be executed when the Promise is fulfilled (resolved) successfully. The function inside .then() will receive the resolved value as its argument.
-```
+```javascript
 myPromise.then((resolvedValue) => {
   // Code to handle the successful resolution
 });
@@ -781,7 +781,7 @@ myPromise.then((resolvedValue) => {
 To handle a failed Promise, you use the .catch() method. The .catch() method is used to specify a callback function that will be executed when the Promise is rejected. The function inside .catch() will receive the reason for the rejection (usually an error) as its argument.
 
 Here's the basic syntax for handling a failed Promise using .catch():
-```
+```javascript
 myPromise.catch((error) => {
   // Code to handle the error or rejection reason
 });
@@ -794,7 +794,7 @@ myPromise.catch((error) => {
 Handling multiple Promises simultaneously is a common scenario in asynchronous programming when you need to execute multiple asynchronous operations in parallel and wait for all of them to complete before performing further actions. JavaScript provides several approaches to handle multiple Promises simultaneously:
 
 **Promise.all():** The Promise.all() method takes an array of Promises as its argument and returns a new Promise that is fulfilled with an array of resolved values when all the input Promises are fulfilled. If any of the input Promises is rejected, the returned Promise will be rejected with the reason of the first rejected Promise.
-```
+```javascript
 const promise1 = fetchDataFromAPI1();
 const promise2 = fetchDataFromAPI2();
 const promise3 = fetchDataFromAPI3();
@@ -811,7 +811,7 @@ Promise.all([promise1, promise2, promise3])
 
 ```
 **Promise.allSettled():** The Promise.allSettled() method is similar to Promise.all(), but it waits for all the input Promises to settle (fulfilled or rejected) before returning a Promise. The resulting Promise is fulfilled with an array of objects, each representing the outcome of the corresponding input Promise.
-```
+```javascript
 const promise1 = fetchDataFromAPI1();
 const promise2 = fetchDataFromAPI2();
 const promise3 = fetchDataFromAPI3();
@@ -824,7 +824,7 @@ Promise.allSettled([promise1, promise2, promise3])
 
 ```
 **Promise.race():** The Promise.race() method takes an array of Promises as its argument and returns a new Promise that is fulfilled or rejected with the value or reason of the first settled Promise (either fulfilled or rejected).
-```
+```javascript
 const promise1 = fetchDataFromAPI1();
 const promise2 = fetchDataFromAPI2();
 const promise3 = fetchDataFromAPI3();
@@ -867,7 +867,7 @@ Here's the general approach:
 - Handle the successful or error outcome in the resolve and reject handlers and fulfill or reject the Promise accordingly.
 
 Let's convert a callback-based function, fetchDataWithCallback, to a Promise-based function, fetchDataWithPromise:
-```
+```javascript
 // Callback-based function
 function fetchDataWithCallback(callback) {
   // Simulating an asynchronous operation
@@ -931,7 +931,7 @@ In JavaScript, there are several types of errors that can occur during the execu
 Template literals, introduced in ECMAScript 2015 (ES6), are a feature in JavaScript that allows you to create strings with embedded expressions. They are denoted using backticks ( ) instead of single or double quotes.
 
 The syntax of a template literal is as follows:
-```
+```javascript
 const variable = 'value';
 const templateLiteral = `This is a template literal with ${variable} inside it.`;
 
@@ -946,7 +946,7 @@ When new features are introduced in JavaScript or web APIs, not all browsers may
 <div id="q88"></div>
 
 ## 88. Give an example of an Anonymous function? [&uarr; Top](#top)
-```
+```javascript
 // Using an anonymous function as a callback
 setTimeout(function() {
   console.log("This is an anonymous function being used as a callback.");
@@ -966,7 +966,7 @@ console.log(addNumbers(5, 10)); // Output: 15
 In JavaScript, every object has a special property called prototype, which allows objects to inherit properties and methods from other objects. The prototype property is used in the concept of prototypal inheritance, where objects can share common behavior through their prototypes.
 
 Here's an example to illustrate the prototype property.
-```
+```javascript
 // Constructor function for creating Person objects
 function Person(name, age) {
   this.name = name;
@@ -993,28 +993,28 @@ person2.sayHello(); // Output: Hello, my name is Bob and I am 25 years old.
 In JavaScript, there are several ways to access an HTML element from within your code. Here's a list of some common methods to do so
 
 **getElementById:** This method retrieves an element by its unique ID attribute
-```
+```javascript
 const elementById = document.getElementById('elementId');
 
 ```
 **querySelector:** This method uses a CSS selector to select the first matching element.
-```
+```javascript
 const elementByQuery = document.querySelector('css-selector');
 ```
 **querySelectorAll:** This method selects all elements that match the given CSS selector and returns them in a NodeList (a collection similar to an array).
-```
+```javascript
 const elementsByQueryAll = document.querySelectorAll('css-selector');
 ```
 **getElementsByClassName**: This method returns a collection of elements that have a specific class name.
-```
+```javascript
 const elementsByClassName = document.getElementsByClassName('className');
 ```
 **getElementsByTagName:** This method returns a collection of elements that have a specific tag name.
-```
+```javascript
 const elementsByTagName = document.getElementsByTagName('tagName');
 ```
 **getElementsByName:** This method returns a collection of elements with a specific name attribute
-```
+```javascript
 const elementsByName = document.getElementsByName('elementName');
 ```
 <div id="q91"></div>
@@ -1023,7 +1023,7 @@ const elementsByName = document.getElementsByName('elementName');
 In ES6 (ECMAScript 2015) and later versions of JavaScript, the class keyword is used to deploy inheritance and create class-based objects with the concept of prototypal inheritance. ES6 introduced a more familiar and object-oriented syntax for creating classes and implementing inheritance.
 
 Here's an example of how inheritance is achieved using the class keyword:
-```
+```javascript
 // Parent class
 class Animal {
   constructor(name) {
@@ -1065,7 +1065,7 @@ Function expression and function declaration are two different ways of creating 
 
 **Function Declaration:**
 A function declaration is a statement that defines a named function using the function keyword. It has the following syntax:
-```
+```javascript
 function functionName(parameters) {
   // Function body
   // Code logic
@@ -1075,7 +1075,7 @@ function functionName(parameters) {
 ```
 **Function Expression:**
 A function expression, on the other hand, is an assignment of a function to a variable. It has the following syntax
-```
+```javascript
 const functionName = function(parameters) {
   // Function body
   // Code logic
@@ -1090,7 +1090,7 @@ const functionName = function(parameters) {
 The const keyword is used to declare variables with constant values. It ensures that the value of the variable cannot be reassigned after its initial assignment. This applies to primitive values as well as object references. However, const does not prevent the properties of an object from being modified if the object itself is mutable.
 
 Example:
-```
+```javascript
 const x = 5; // x is a constant
 const obj = { key: "value" };
 obj.key = "new value"; // This is allowed
@@ -1099,7 +1099,7 @@ obj.key = "new value"; // This is allowed
 Object.freeze() is a method provided by JavaScript that allows you to freeze an object, making it immutable. Once an object is frozen, its properties cannot be added, modified, or removed. Any attempts to modify a frozen object or its properties will result in an error (in strict mode) or be silently ignored (in non-strict mode).
 
 Example
-```
+```javascript
 const obj = { key: "value" };
 Object.freeze(obj);
 obj.key = "new value"; // This won't modify the object and will have no effect
