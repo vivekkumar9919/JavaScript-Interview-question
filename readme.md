@@ -1,5 +1,5 @@
 
-#  Brush up your JavaScript knowledge for your 2023 interview with this list of 80+ frequently asked questions
+#  Brush up your JavaScript knowledge for your 2023 interview with this list of 64 frequently asked questions
 
 
 ## Table of Contents
@@ -7,105 +7,68 @@
 
 - [1. What is Javascript ?](#q1)
 - [2. What is Key Features of Javascript ?](#q2)
-- [3. What are the data types in JavaScript? ?](#q3)
-- [4. What is the difference between null and undefined in JavaScript?](#q4)
-- [5. What is NaN in JavaScript? ?](#q5)
-- [6. What is the difference between Primitive and Non-primitive data types in JavaScript ?](#q6)
-- [7. What is the difference between == and === in JavaScript ?](#q7)
-- [8. What is the difference between synchronous and asynchronous code in JavaScript ?](#q8)
-- [9. What is the difference between let ,var and const in JavaScript? ](#q9)
-- [10. What is the difference between null and undefined in JavaScript? ](#q10)
-- [11. What is first class function? ](#q11)
-- [12. what is higher order function? ](#q12)
-- [13. What is first order function? ](#q13)
-- [14. What is the difference between parameter and argument in JavaScript? ](#q14)
-- [15. What is Callback? ](#q15)
-- [16. Why we need a callback in javascript? ](#q16)
-- [17. What is difference conformation box and alert box? ](#q17)
-- [18. What is the difference between shift and unshift in JavaScript? ](#q18)
-- [19. What is the difference between slice and splice in JavaScript? ](#q19)
-- [20. What is the difference between rest and spread in JavaScript? ](#q20)
-- [21. What is the difference between deep copy and shalow copy in JavaScript? ](#q21)
-- [22. What is the difference between call, apply and bind in JavaScript? ](#q22)
-- [23. What is local storage in JavaScript? ](#q23)
-- [24. What is session storage in JavaScript? ](#q24)
-- [25. What is the difference between local storage and session storage? ](#q25)
-- [26. How do you store data in local storage in JavaScript? ](#q26)
-- [27. How do you retrieve data from local storage in JavaScript? ](#q27)
-- [28. How do you remove data from local storage in JavaScript? ](#q28)
-- [29. How do you clear all data from local storage in JavaScript? ](#q29)
-- [30. What is the maximum amount of data that can be stored in local storage? ](#q30)
-- [31. How do you check if local storage is available in JavaScript? ](#q31)
-- [32. Is local storage secure in JavaScript? ](#q32)
-- [33. What is the difference between cookies and local storage? ](#q33)
-- [34. How can you ensure that local storage data is not lost if the user clears their browser cache? ](#q34)
-- [35. How do you set an expiration date for local storage data in JavaScript? ](#q35)
-- [36. What is the difference between synchronous and asynchronous storage operations in JavaScript? ](#q36)
-- [37. How do you handle errors when working with local storage in JavaScript? ](#q37)
-- [38. How do you synchronize local storage data between multiple devices? ](#q38)
-- [39. What is browser caching and how does it work? ](#q39)
-- [40. What is the difference between first-party cookies and third-party cookies? ](#q40)
-- [41. How do you set and read cookies in JavaScript? ](#q41)
-- [42. How do you delete a cookie in JavaScript? ](#q42)
-- [43. What is the typeof operator in JavaScript and how is it used? ](#q43)
-- [44. What is the in operator in JavaScript and how is it used? ](#q44)
-- [45. What is the 'instanceof' operator in JavaScript and how is it used? ](#q45)
-- [46. What is the delete operator in JavaScript and how is it used? ](#q46)
-- [47. What is the typeof null in JavaScript? ](#q47)
-- [48. What is the void operator in JavaScript and how is it used? ](#q48)
-- [49. What is the typeof NaN in JavaScript?  ](#q49)
-- [50. How do you concatenate two strings in JavaScript? ](#q50)
-- [51. How do you replace a substring within a string in JavaScript? ](#q51)
-- [52. What is the DOM in JavaScript? ](#q52)
-- [53. How do you access an element in the DOM using JavaScript? ](#q53)
-- [54. What is the difference between innerHTML and textContent in JavaScript? ](#q54)
-- [55. What is the difference between the window object and the document object in the DOM? ](#q55)
-- [56. How do you get the value of a form element in the DOM using JavaScript? ](#q56)
-- [57. What is the difference between getElementsByClassName() and querySelectorAll() methods? ](#q57)
-- [58. How do you dynamically create an HTML table using JavaScript?  ](#q58)
-- [59. What is the difference between parentNode and parentElement in the DOM? ](#q59)
-- [60. How do you check if an element has a particular class using JavaScript? ](#q60)
-- [61. How do you check if an element is visible in the viewport using JavaScript? ](#q61)
-- [62. What is the difference between a transition and an animation? ](#q62)
-- [63. What is the difference between a linear and an ease-in-out transition timing function? ](#q63)
-- [64. What is the difference between the transform and the transition properties in CSS? ](#q64)
-- [65. How do you pause and resume a transition or animation using JavaScript? ](#q65)
-- [66. How do you perform form validation in JavaScript? ](#q66)
-- [67. How do you validate user input in JavaScript? ](#q67)
-- [68. How do you prevent SQL injection attacks in JavaScript? ](#q68)
-- [69. How do you validate email addresses in JavaScript? ](#q69)
-- [70. What is client-side validation in JavaScript? ](#q70)
-- [71. What is form validation using HTML5 validation attributes in JavaScript?  ](#q71)
-- [72. How do you prevent form submission if validation fails using JavaScript? ](#q72)
-- [73. What is a Promise in JavaScript? ](#q73)
-- [74. What are the states of a Promise? ](#q74)
-- [75. How do you create a Promise in JavaScript? ](#q75)
-- [76. How do you handle a successful Promise? ](#q76)
-- [77. How do you handle a failed Promise? ](#q77)
-- [78. How do you handle multiple Promises simultaneously? ](#q78)
-- [79. What is the difference between Promise.all() and Promise.race()? ](#q79)
-- [80. What is Promise chaining? ](#q80)
-- [81. What is the difference between Promises and callbacks? ](#q81)
-- [82. How do you convert a callback function to a Promise? ](#q82)
-- [83. What is the difference between a synchronous and asynchronous callback in JavaScript? ](#q83)
-- [84. How many types of error in javascript? ](#q84)
-- [85. Difference between undefined and not defined ? ](#q85)
-- [86. What is Template literal in javascript? ](#q86)
-- [87. What is polyfill? ](#q87)
-- [88. Give an example of an Anonymous function? ](#q88)
-- [89. What is Prototype Property? Explain with an Example. ](#q89)
-- [90. Give a list of the various ways using which an HTML element can be accessed within a JavaScript code? ](#q90)
-- [91. Which keyword can be used to deploy inheritance in ES6?  ](#q91)
-- [92. What's the difference between a function expression and function declaration? ](#q92)
-- [93. Explain the difference between Object.freeze() vs const? ](#q93)
-- [94.  ](#q94)
-- [95.  ](#q95)
-- [96.  ](#q96)
-- [97.  ](#q97)
-- [98.  ](#q98)
-- [99.  ](#q99)
-- [9.  ](#q9)
-- [9.  ](#q9)
+- [3. What are the data types in JavaScript ?](#q3)
+- [4. What is the difference between null and undefined in JavaScript ?](#q4)
+- [5. What is NaN in JavaScript?](#q5)
+- [6. What is the difference between Primitive and Non-primitive data types in JavaScript?](#q6)
+- [7. What is the difference between == and === in JavaScript?](#q7)
+- [8. What is the difference between synchronous and asynchronous code in JavaScript?](#q8)
+- [9. What is the difference between let ,var and const in JavaScript?](#q9)
+- [10. What is the difference between null and undefined in JavaScript?](#q10)
+- [11. What is first class function?](#q11)
+- [12. What is higher order function?](#q12)
+- [13. What is first order function?](#q13)
+- [14. What is Callback?](#q14)
+- [15. Why we need a callback in javascript?](#q15)
+- [16. What is the difference between shift and unshift in JavaScript?](#q16)
+- [17. What is the difference between slice and splice in JavaScript?](#q17)
+- [18. What is the difference between rest and spread in JavaScript?](#q18)
+- [19. What is the difference between deep copy and shalow copy in JavaScript?](#q19)
+- [20. What is the difference between call, apply and bind in JavaScript?](#q20)
+- [21. What is local storage in JavaScript?](#q21)
+- [22. What is session storage in JavaScript?](#q22)
+- [23. What is the difference between local storage and session storage?](#q23)
+- [24. What is the difference between cookies and local storage?](#q24)
+- [25. How can you ensure that local storage data is not lost if the user clears their browser cache?](#q25)
+- [26. What is the difference between synchronous and asynchronous storage operations in JavaScript?](#q26)
+- [27. How do you handle errors when working with local storage in JavaScript?](#q27)
+- [28. How do you synchronize local storage data between multiple devices?](#q28)
+- [29. What is browser caching and how does it work?](#q29)
+- [30. What is the difference between first-party cookies and third-party cookies?](#q30)
+- [31. How do you set and read cookies in JavaScript?](#q31)
+- [32. What is the typeof null in JavaScript?](#q32)
+- [33. What is the void operator in JavaScript and how is it used?](#q33)
+- [34. What is the typeof NaN in JavaScript?](#q34)
+- [35. How do you concatenate two strings in JavaScript?](#q35)
+- [36. How do you replace a substring within a string in JavaScript?](#q36)
+- [37. What is the DOM in JavaScript?](#q37)
+- [38. How do you access an element in the DOM using JavaScript?](#q38)
+- [39. What is the difference between innerHTML and textContent in JavaScript?](#q39)
+- [40. What is the difference between getElementsByClassName() and querySelectorAll() methods?](#q40)
+- [41. How do you perform form validation in JavaScript?](#q41)
+- [42. How do you prevent SQL injection attacks in JavaScript?](#q42)
+- [43. What is client-side validation in JavaScript?](#q43)
+- [44. What is a Promise in JavaScript?](#q44)
+- [45. What are the states of a Promise?](#q45)
+- [46. How do you create a Promise in JavaScript?](#q46)
+- [47. How do you handle a successful Promise?](#q47)
+- [48. How do you handle a failed Promise?](#q48)
+- [49. How do you handle multiple Promises simultaneously?](#q49)
+- [50. What is the difference between Promise.all() and Promise.race()?](#q50)
+- [51. What is Promise chaining?](#q51)
+- [52. What is the difference between Promises and callbacks?](#q52)
+- [53. How do you convert a callback function to a Promise?](#q53)
+- [54. What is the difference between a synchronous and asynchronous callback in JavaScript?](#q54)
+- [55. How many types of error in javascript?](#q55)
+- [56. Difference between undefined and not defined ?](#q56)
+- [57. What is Template literal in javascript?](#q57)
+- [58. What is polyfill?](#q58)
+- [59. Give an example of an Anonymous function?](#q59)
+- [60. What is Prototype Property? Explain with an Example.](#q60)
+- [61. Give a list of the various ways using which an HTML element can be accessed within a JavaScript code?](#q61)
+- [62. Which keyword can be used to deploy inheritance in ES6?](#q62)
+- [63. What's the difference between a function expression and function declaration?](#q63)
+- [64. Explain the difference between Object.freeze() vs const?](#q64)
 
 
 
@@ -257,30 +220,14 @@ function addNumbers(a, b) {
 
 <div id="q14"></div>
 
-## 14. What is the difference between parameter and argument in JavaScript?
-A **parameter** is a named variable in a function definition that receives a value when the function is called. Parameters are used to define the inputs that a function expects to receive. For example, in the following function definition, "x" and "y" are parameters:
-```javascript
-function add(x, y) {
-  return x + y;
-}
-
-```
-An **argument** is a value that is passed to a function when it is called. Arguments are used to supply the inputs that a function expects to receive. For example, in the following function call, "2" and "3" are arguments:
-```javascript
-add(2, 3);
-
-```
-
-<div id="q15"></div>
-
-## 15. What is Callback?[&uarr; Top](#top)
+## 14. What is Callback?[&uarr; Top](#top)
 A callback is a function that is passed as an argument to another function and is executed when that function has completed its operation.
 
 Callbacks are commonly used in asynchronous programming, where a function does not block the execution of the program but instead returns immediately, allowing other code to be executed while it waits for a response. When the response is received, the callback function is called to handle the data
 
-<div id="q16"></div>
+<div id="q15"></div>
 
-## 16.Why we need a callback in javascript? [&uarr; Top](#top)
+## 15.Why we need a callback in javascript? [&uarr; Top](#top)
 Callbacks are a fundamental concept in JavaScript, and they are used extensively in asynchronous programming. Here are a few reasons why callbacks are important in JavaScript:
 
 **Handling Asynchronous Operations:** JavaScript is often used for programming applications that rely on asynchronous operations, such as network communication, file input/output, and user interface events. Using callbacks allows us to write code that can execute non-blocking operations and still be notified when those operations complete.
@@ -291,27 +238,9 @@ Callbacks are a fundamental concept in JavaScript, and they are used extensively
 
 **Control Flow:** Callbacks can be used to control the flow of execution in a program, allowing us to create complex sequences of operations that execute in a specific order.
 
-<div id="q17"></div>
+<div id="q16"></div>
 
-## 17. What is difference conformation box and alert box? [&uarr; Top](#top)
-A confirmation box, also known as a confirm box, is used to ask the user for confirmation before proceeding with an action. It typically displays a message and two buttons, usually labeled "OK" and "Cancel". When the user clicks "OK", the confirm box returns a value of true, while clicking "Cancel" returns a value of false. Here's an example:
-```javascript
-if (confirm("Are you sure you want to delete this item?")) {
-  // Delete the item
-} else {
-  // Do nothing
-}
-
-```
-An alert box, on the other hand, is used to display a message to the user. It typically has only one button, labeled "OK". When the user clicks "OK", the alert box is dismissed. Here's an example:
-```javascript
-alert("Your message has been sent!");
-
-```
-
-<div id="q18"></div>
-
-## 18. What is the difference between shift and unshift in JavaScript? [&uarr; Top](#top)
+## 16. What is the difference between shift and unshift in JavaScript? [&uarr; Top](#top)
 **shift()** method removes the first element from an array and returns it. This means that the array is modified and its length is reduced by one.
 Here's an example:
 ```javascript
@@ -326,9 +255,9 @@ const newLength = arr.unshift(1); // newLength = 3, arr = [1, 2, 3]
 
 ```
 
-<div id="q19"></div>
+<div id="q17"></div>
 
-## 19. What is the difference between slice and splice in JavaScript? [&uarr; Top](#top)
+## 17. What is the difference between slice and splice in JavaScript? [&uarr; Top](#top)
 
 **slice()** method returns a new array that contains a copy of a portion of the original array. The original array is not modified.
 Here's an example:
@@ -347,9 +276,9 @@ const spliced = arr.splice(2, 2, 6, 7); // spliced = [3, 4], arr = [1, 2, 6, 7, 
 
 ```
 
-<div id="q20"></div>
+<div id="q18"></div>
 
-## 20. What is the difference between rest and spread in JavaScript? [&uarr; Top](#top)
+## 18. What is the difference between rest and spread in JavaScript? [&uarr; Top](#top)
 In JavaScript, both rest and spread are features of the ES6 (ECMAScript 2015) specification that enable more flexible handling of arrays and objects.
 
 **Rest** is used to represent an indefinite number of arguments as an array. It is denoted by an ellipsis ... before the name of a parameter in a function definition, indicating that any number of additional arguments can be passed in as an array.
@@ -371,9 +300,9 @@ const mergedArray = [...arr1, ...arr2]; // mergedArray = [1, 2, 3, 4, 5, 6]
 ```
 
 
-<div id="q21"></div>
+<div id="q19"></div>
 
-## 21. What is the difference between deep copy and shalow copy in JavaScript? [&uarr; Top](#top)
+## 19. What is the difference between deep copy and shalow copy in JavaScript? [&uarr; Top](#top)
 In JavaScript, when you create a copy of an object or an array, there are two ways to do it: deep copy and shallow copy.
 
 **Shallow copy** creates a new object or array, but its properties or elements still point to the same memory location as the original object or array. This means that changes made to the original object or array will also affect the copied object or array.
@@ -406,9 +335,9 @@ In the above example, copied is a deep copy of original, so changes made to the 
 
 So, the main difference between deep copy and shallow copy is that deep copy creates a completely independent copy of the original object or array, while shallow copy only creates a new object or array that shares some of the properties or elements with the original object or array.
 
-<div id="q22"></div>
+<div id="q20"></div>
 
-## 22. What is the difference between call, apply and bind in JavaScript? [&uarr; Top](#top)
+## 20. What is the difference between call, apply and bind in JavaScript? [&uarr; Top](#top)
 In JavaScript, call, apply, and bind are methods that allow you to set the this value for a function and pass in arguments in different ways.
 
 call and apply are used to call a function immediately, while bind returns a new function with the this value and some arguments pre-set.
@@ -477,264 +406,128 @@ In the above example, bind() is used to create a new function greetEmployee with
 So, the main difference between call(), apply(), and bind() is the way they pass arguments to the function and the way they set the this value.
 
 
-<div id="q23"></div>
+<div id="q21"></div>
 
-## 23. What is local storage in JavaScript? [&uarr; Top](#top)
+## 21. What is local storage in JavaScript? [&uarr; Top](#top)
 Local storage is a type of storage in JavaScript that allows web developers to store data within a user's browser. It is a key-value store, meaning that data is stored as a pair of key and value. Local storage data persists even after the user closes the browser window
 
 
-<div id="q24"></div>
+<div id="q22"></div>
 
-## 24. What is session storage in JavaScript? [&uarr; Top](#top)
+## 22. What is session storage in JavaScript? [&uarr; Top](#top)
 Session storage is another type of storage in JavaScript that allows web developers to store data within a user's browser. Unlike local storage, session storage data is stored only for the duration of the user's browser session, meaning that the data is lost when the user closes the browser window
 
 
+<div id="q23"></div>
+
+## 23. What is the difference between local storage and session storage? [&uarr; Top](#top)
+The main difference between local storage and session storage is that local storage data persists even after the user closes the browser window, while session storage data is lost when the user closes the browser window
+
+<div id="q24"></div>
+
+## 24. What is the difference between cookies and local storage? [&uarr; Top](#top)
+Cookies are small text files that are stored on a user's device by a website, while local storage is a type of storage in JavaScript that allows web developers to store data directly in a user's browser. Cookies are typically used for authentication and tracking, while local storage is used for storing user-specific data such as preferences and settings.
+
 <div id="q25"></div>
 
-## 25. What is the difference between local storage and session storage? [&uarr; Top](#top)
-The main difference between local storage and session storage is that local storage data persists even after the user closes the browser window, while session storage data is lost when the user closes the browser window
+## 25. How can you ensure that local storage data is not lost if the user clears their browser cache? [&uarr; Top](#top)
+Local storage data is typically not cleared when a user clears their browser cache, but it may be cleared if the user clears their browser data or if the storage quota is exceeded. To ensure that local storage data is not lost, you can periodically backup the data to a server or use other storage options such as cookies or indexedDB
 
 <div id="q26"></div>
 
-## 26. How do you store data in local storage in JavaScript? [&uarr; Top](#top)
-To store data in local storage, you can use the localStorage.setItem() method. For example, localStorage.setItem('key', 'value'); will store the string 'value' under the key 'key' in local storage
-
-<div id="q27"></div>
-
-## 27. How do you retrieve data from local storage in JavaScript?
-To retrieve data from local storage, you can use the localStorage.getItem() method. For example, localStorage.getItem('key'); will return the value stored under the key 'key' in local storage
-
-<div id="q28"></div>
-
-## 28. How do you remove data from local storage in JavaScript? [&uarr; Top](#top)
-To remove data from local storage, you can use the localStorage.removeItem() method. For example, localStorage.removeItem('key'); will remove the key-value pair with the key 'key' from local storage.
-
-<div id="q29"></div>
-
-## 29. How do you clear all data from local storage in JavaScript? [&uarr; Top](#top)
-To clear all data from local storage, you can use the localStorage.clear() method. For example, localStorage.clear(); will remove all key-value pairs from local storage
-
-<div id="q30"></div>
-
-## 30. What is the maximum amount of data that can be stored in local storage? [&uarr; Top](#top)
-The maximum amount of data that can be stored in local storage is typically around 5-10 MB, depending on the browser and device
-
-<div id="q31"></div>
-
-## 31. How do you check if local storage is available in JavaScript? [&uarr; Top](#top)
-Answer: To check if local storage is available, you can use the localStorage object. For example, if (typeof localStorage !== 'undefined') { /* local storage is available */ } will check if the localStorage object is defined.
-
-<div id="q32"></div>
-
-## 32. Is local storage secure in JavaScript? [&uarr; Top](#top)
-Local storage is not very secure in JavaScript, as the data can be accessed by any script running on the same domain. It is important to be careful when storing sensitive data in local storage and to encrypt the data if necessary
-
-<div id="q33"></div>
-
-## 33. What is the difference between cookies and local storage? [&uarr; Top](#top)
-Cookies are small text files that are stored on a user's device by a website, while local storage is a type of storage in JavaScript that allows web developers to store data directly in a user's browser. Cookies are typically used for authentication and tracking, while local storage is used for storing user-specific data such as preferences and settings.
-
-<div id="q34"></div>
-
-## 34. How can you ensure that local storage data is not lost if the user clears their browser cache? [&uarr; Top](#top)
-Local storage data is typically not cleared when a user clears their browser cache, but it may be cleared if the user clears their browser data or if the storage quota is exceeded. To ensure that local storage data is not lost, you can periodically backup the data to a server or use other storage options such as cookies or indexedDB
-
-<div id="q35"></div>
-
-## 35. How do you set an expiration date for local storage data in JavaScript? [&uarr; Top](#top)
-There is no built-in way to set an expiration date for local storage data in JavaScript, but you can manually check the age of the data and delete it if it is too old. Alternatively, you can use a third-party library or framework that provides this functionality
-
-
-<div id="q36"></div>
-
-## 36. What is the difference between synchronous and asynchronous storage operations in JavaScript? [&uarr; Top](#top)
+## 26. What is the difference between synchronous and asynchronous storage operations in JavaScript? [&uarr; Top](#top)
 Synchronous storage operations in JavaScript block the main thread of the browser until the operation is complete, while asynchronous storage operations allow other code to continue running while the operation is being performed. Asynchronous storage operations are generally preferred because they provide a better user experience and prevent the browser from freezing or becoming unresponsive
 
 
-<div id="q37"></div>
+<div id="q27"></div>
 
-## 37. How do you handle errors when working with local storage in JavaScript? [&uarr; Top](#top)
+## 27. How do you handle errors when working with local storage in JavaScript? [&uarr; Top](#top)
 When working with local storage in JavaScript, you should always check for errors and handle them appropriately. Common errors include exceeding the storage quota, invalid data types, and security violations. You can use try-catch blocks or error handling functions to catch and handle these errors.
 
-<div id="q38"></div>
+<div id="q28"></div>
 
-## 38. How do you synchronize local storage data between multiple devices? [&uarr; Top](#top)
+## 28. How do you synchronize local storage data between multiple devices? [&uarr; Top](#top)
 Synchronizing local storage data between multiple devices can be challenging, as local storage data is specific to a single browser on a single device. To synchronize data between devices, you can use a server-side database or cloud storage service, or you can use a third-party library or framework that provides synchronization functionality
 
-<div id="q39"></div>
+<div id="q29"></div>
 
-## 39. What is browser caching and how does it work?  [&uarr; Top](#top)
+## 29. What is browser caching and how does it work?  [&uarr; Top](#top)
 Browser caching is a process by which a browser stores a copy of a webpage or other web content on the user's device so that it can be quickly retrieved and displayed the next time the user visits the same page. When a user requests a page for the first time, the browser downloads all of the necessary resources (HTML, CSS, JavaScript, images, etc.) and stores them in its cache. The next time the user visits the same page, the browser checks its cache first and retrieves the resources from there if they have not expired or been modified
 
 
+<div id="q30"></div>
+
+## 30. What is the difference between first-party cookies and third-party cookies? [&uarr; Top](#top)
+First-party cookies are created and used by the website that the user is visiting, while third-party cookies are created and used by a domain other than the one that the user is visiting. Third-party cookies are often used for tracking and advertising purposes, and have been the subject of privacy concerns in recent years.
+
+<div id="q31"></div>
+
+## 31. How do you set and read cookies in JavaScript? [&uarr; Top](#top)
+To set a cookie in JavaScript, you can use the document.cookie property, which allows you to set a string in the format key=value. For example, document.cookie = 'username=john'; will set a cookie named 'username' with the value 'john'. To read a cookie, you can use the document.cookie property to get a string of all the cookies, and then parse the string to find the cookie you are looking for.
+
+<div id="q32"></div>
+
+## 32. What is the typeof null in JavaScript? [&uarr; Top](#top)
+The typeof null is a quirk of JavaScript, and returns 'object'. This is because null is often used to represent an empty object, but is not actually an object itself.
+
+<div id="q33"></div>
+
+## 33. What is the void operator in JavaScript and how is it used? [&uarr; Top](#top)
+The void operator is used to evaluate an expression and return undefined. It is often used in situations where a statement needs to be evaluated but no value is needed or desired. For example, void console.log('Hello, world!') would log the string 'Hello, world!' to the console, but would return undefined
+
+<div id="q34"></div>
+
+## 34. What is the typeof NaN in JavaScript? [&uarr; Top](#top)
+The typeof NaN in JavaScript returns 'number', which can be confusing since NaN is not a valid number. NaN stands for "Not a Number", and is often the result of mathematical operations that do not have a valid result, such as dividing by zero or performing arithmetic with non-numeric values.
+
+<div id="q35"></div>
+
+## 35. How do you concatenate two strings in JavaScript? [&uarr; Top](#top)
+Answer: Two strings can be concatenated in JavaScript using the + operator. For example, var myString = 'hello' + 'world'; console.log(myString); will output 'helloworld'.
+
+<div id="q36"></div>
+
+## 36. How do you replace a substring within a string in JavaScript? [&uarr; Top](#top)
+Answer: A substring can be replaced within a string in JavaScript using the replace() method. For example, var myString = 'hello world'; console.log(myString.replace('world', 'universe')); will output 'hello universe'
+
+<div id="q37"></div>
+
+## 37. What is the DOM in JavaScript? [&uarr; Top](#top)
+The Document Object Model (DOM) is a programming interface for web documents that provides a hierarchical representation of the HTML or XML document. It allows programmers to access and manipulate the content and structure of a web page using JavaScript
+
+<div id="q38"></div>
+
+## 38. How do you access an element in the DOM using JavaScript? [&uarr; Top](#top)
+You can access an element in the DOM using JavaScript by using the document.getElementById() method, which returns a reference to the element with the specified ID.
+
+<div id="q39"></div>
+
+## 39. What is the difference between innerHTML and textContent in JavaScript? [&uarr; Top](#top)
+innerHTML sets or returns the HTML content inside an element, while textContent sets or returns the text content of an element, without any HTML tags.
+
 <div id="q40"></div>
 
-## 40. What is the difference between first-party cookies and third-party cookies? [&uarr; Top](#top)
-First-party cookies are created and used by the website that the user is visiting, while third-party cookies are created and used by a domain other than the one that the user is visiting. Third-party cookies are often used for tracking and advertising purposes, and have been the subject of privacy concerns in recent years.
+## 40. What is the difference between getElementsByClassName() and querySelectorAll() methods? [&uarr; Top](#top)
+The getElementsByClassName() method returns a live HTMLCollection of elements with the specified class name, while the querySelectorAll() method returns a non-live NodeList of elements that match a specified CSS selector.
 
 <div id="q41"></div>
 
-## 41. How do you set and read cookies in JavaScript? [&uarr; Top](#top)
-To set a cookie in JavaScript, you can use the document.cookie property, which allows you to set a string in the format key=value. For example, document.cookie = 'username=john'; will set a cookie named 'username' with the value 'john'. To read a cookie, you can use the document.cookie property to get a string of all the cookies, and then parse the string to find the cookie you are looking for.
+## 41. How do you perform form validation in JavaScript? [&uarr; Top](#top)
+You can perform form validation in JavaScript by using the submit event to check the form data, and displaying error messages if the data is invalid.
 
 <div id="q42"></div>
 
-## 42. How do you delete a cookie in JavaScript? [&uarr; Top](#top)
-To delete a cookie in JavaScript, you can set the cookie's expiration date to a date in the past. For example, document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC'; will delete the cookie named 'username'.
+## 42. How do you prevent SQL injection attacks in JavaScript? [&uarr; Top](#top)
+You can prevent SQL injection attacks in JavaScript by using prepared statements and parameterized queries, and by escaping special characters in user input.
 
 <div id="q43"></div>
 
-## 43. What is the typeof operator in JavaScript and how is it used? [&uarr; Top](#top)
-The typeof operator is used to determine the type of a variable or expression in JavaScript. It returns a string indicating the data type of the operand. For example, typeof 'hello' would return the string 'string', while 'typeof 42' would return the string 'number'
+## 43. What is client-side validation in JavaScript? [&uarr; Top](#top)
+Client-side validation is the process of validating user input on the client-side, before the form is submitted to the server.
 
 <div id="q44"></div>
 
-## 44. What is the 'in' operator in JavaScript and how is it used? [&uarr; Top](#top)
-The 'in' operator is used to determine if an object contains a property with a given name. It returns true if the property exists, and false otherwise. For example, 'name' in person would return true if the object person has a property named name
-
-<div id="q45"></div>
-
-## 45. What is the 'instanceof' operator in JavaScript and how is it used? [&uarr; Top](#top)
-The 'instanceof' operator is used to determine if an object is an instance of a particular class or constructor function. It returns true if the object is an instance of the specified class, and false otherwise. For example, myCar 'instanceof' Car would return true if myCar is an instance of the Car class.
-
-<div id="q46"></div>
-
-## 46. What is the delete operator in JavaScript and how is it used? [&uarr; Top](#top)
-The delete operator is used to remove a property from an object. It returns true if the property is successfully deleted, and false otherwise. For example, delete person.name would remove the name property from the person object.
-
-<div id="q47"></div>
-
-## 47. What is the typeof null in JavaScript? [&uarr; Top](#top)
-The typeof null is a quirk of JavaScript, and returns 'object'. This is because null is often used to represent an empty object, but is not actually an object itself.
-
-<div id="q48"></div>
-
-## 48. What is the void operator in JavaScript and how is it used? [&uarr; Top](#top)
-The void operator is used to evaluate an expression and return undefined. It is often used in situations where a statement needs to be evaluated but no value is needed or desired. For example, void console.log('Hello, world!') would log the string 'Hello, world!' to the console, but would return undefined
-
-<div id="q49"></div>
-
-## 49. What is the typeof NaN in JavaScript? [&uarr; Top](#top)
-The typeof NaN in JavaScript returns 'number', which can be confusing since NaN is not a valid number. NaN stands for "Not a Number", and is often the result of mathematical operations that do not have a valid result, such as dividing by zero or performing arithmetic with non-numeric values.
-
-<div id="q50"></div>
-
-## 50. How do you concatenate two strings in JavaScript? [&uarr; Top](#top)
-Answer: Two strings can be concatenated in JavaScript using the + operator. For example, var myString = 'hello' + 'world'; console.log(myString); will output 'helloworld'.
-
-<div id="q6"></div>
-
-## 51. How do you replace a substring within a string in JavaScript? [&uarr; Top](#top)
-Answer: A substring can be replaced within a string in JavaScript using the replace() method. For example, var myString = 'hello world'; console.log(myString.replace('world', 'universe')); will output 'hello universe'
-
-<div id="q52"></div>
-
-## 52. What is the DOM in JavaScript? [&uarr; Top](#top)
-The Document Object Model (DOM) is a programming interface for web documents that provides a hierarchical representation of the HTML or XML document. It allows programmers to access and manipulate the content and structure of a web page using JavaScript
-
-<div id="q53"></div>
-
-## 53. How do you access an element in the DOM using JavaScript? [&uarr; Top](#top)
-You can access an element in the DOM using JavaScript by using the document.getElementById() method, which returns a reference to the element with the specified ID.
-
-<div id="q54"></div>
-
-## 54. What is the difference between innerHTML and textContent in JavaScript? [&uarr; Top](#top)
-innerHTML sets or returns the HTML content inside an element, while textContent sets or returns the text content of an element, without any HTML tags.
-
-<div id="q55"></div>
-
-## 55. What is the difference between the window object and the document object in the DOM? [&uarr; Top](#top)
-The window object represents the browser window or frame, while the document object represents the web page that is loaded into the window or frame.
-
-<div id="q56"></div>
-
-## 56. How do you get the value of a form element in the DOM using JavaScript? [&uarr; Top](#top)
-Answer: You can get the value of a form element in the DOM using JavaScript by using the element.value property, which returns the current value of the element.
-
-<div id="q57"></div>
-
-## 57. What is the difference between getElementsByClassName() and querySelectorAll() methods? [&uarr; Top](#top)
-The getElementsByClassName() method returns a live HTMLCollection of elements with the specified class name, while the querySelectorAll() method returns a non-live NodeList of elements that match a specified CSS selector.
-
-<div id="q58"></div>
-
-## 58. How do you dynamically create an HTML table using JavaScript? [&uarr; Top](#top)
-You can dynamically create an HTML table using JavaScript by creating a new table element, adding rows and cells to it, and then appending it to the DOM.
-
-<div id="q59"></div>
-
-## 59. What is the difference between parentNode and parentElement in the DOM? [&uarr; Top](#top)
-The parentNode property returns the parent node of an element, while the parentElement property returns the parent element of an element. The difference is that the parentElement property returns null if the parent node is not an element node.
-
-<div id="q60"></div>
-
-## 60. How do you check if an element has a particular class using JavaScript? [&uarr; Top](#top)
-You can check if an element has a particular class using JavaScript by using the element.classList.contains() method, which returns true if the element has the specified class
-
-<div id="q61"></div>
-
-## 61. How do you check if an element is visible in the viewport using JavaScript? [&uarr; Top](#top)
-You can check if an element is visible in the viewport using JavaScript by comparing the element's bounding rectangle with the viewport's bounding rectangle using the element.getBoundingClientRect() method.
-
-<div id="q62"></div>
-
-## 62. What is the difference between a transition and an animation? [&uarr; Top](#top)
-A transition is a way to animate a property change of an element over a period of time, while an animation is a way to animate an element by defining a set of keyframes and applying them to the element over a period of time.
-
-<div id="q63"></div>
-
-## 63. What is the difference between a linear and an ease-in-out transition timing function? [&uarr; Top](#top)
-A linear transition timing function causes the transition to occur at a constant rate, while an ease-in-out transition timing function starts slow, speeds up in the middle, and then slows down again at the end.
-
-<div id="q64"></div>
-
-## 64. What is the difference between the transform and the transition properties in CSS? [&uarr; Top](#top)
-The transform property applies a 2D or 3D transformation to an element, while the transition property specifies the transition properties for an element, such as the duration and timing function.
-
-<div id="q65"></div>
-
-## 65. How do you pause and resume a transition or animation using JavaScript? [&uarr; Top](#top)
-You can pause and resume a transition or animation using JavaScript by adding or removing a CSS class that has been set up to pause or resume the animation.
-
-<div id="q66"></div>
-
-## 66. How do you perform form validation in JavaScript? [&uarr; Top](#top)
-You can perform form validation in JavaScript by using the submit event to check the form data, and displaying error messages if the data is invalid.
-
-<div id="q67"></div>
-
-## 67. How do you validate user input in JavaScript? [&uarr; Top](#top)
-You can validate user input in JavaScript by using conditional statements and regular expressions to check if the input meets certain criteria, such as being the correct data type or format.
-
-<div id="q68"></div>
-
-## 68. How do you prevent SQL injection attacks in JavaScript? [&uarr; Top](#top)
-You can prevent SQL injection attacks in JavaScript by using prepared statements and parameterized queries, and by escaping special characters in user input.
-
-<div id="q69"></div>
-
-## 69. How do you validate email addresses in JavaScript? [&uarr; Top](#top)
-You can validate email addresses in JavaScript using regular expressions to check if the address is in the correct format, such as having an @ symbol and a domain name.
-
-<div id="q70"></div>
-
-## 70. What is client-side validation in JavaScript? [&uarr; Top](#top)
-Client-side validation is the process of validating user input on the client-side, before the form is submitted to the server.
-
-<div id="q71"></div>
-
-## 71. What is form validation using HTML5 validation attributes in JavaScript? [&uarr; Top](#top)
-Form validation using HTML5 validation attributes is the process of using built-in HTML5 attributes, such as required, pattern, and min/max, to validate user input on the client-side
-
-<div id="q72"></div>
-
-## 72. How do you prevent form submission if validation fails using JavaScript? [&uarr; Top](#top)
-You can prevent form submission if validation fails using JavaScript by using the preventDefault() method on the event object, which will stop the form from being submitted to the server.
-
-<div id="q73"></div>
-
-## 73. What is a Promise in JavaScript? [&uarr; Top](#top)
+## 44. What is a Promise in JavaScript? [&uarr; Top](#top)
 In JavaScript, a Promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. Promises were introduced in ECMAScript 2015 (ES6) to simplify asynchronous programming and make it easier to handle complex asynchronous operations, such as fetching data from a server or reading files.
 
 A Promise can be in one of three states:
@@ -744,14 +537,14 @@ A Promise can be in one of three states:
 **Rejected:** The state when the asynchronous operation encounters an error or fails, and the Promise rejects with a reason (error).
 A Promise can transition from pending to either fulfilled or rejected but cannot change its state once settled (fulfilled or rejected).
 
-<div id="q74"></div>
+<div id="q45"></div>
 
-## 74. What are the states of a Promise? [&uarr; Top](#top)
+## 45. What are the states of a Promise? [&uarr; Top](#top)
 A Promise can be in one of three states: Pending (initial state), Fulfilled (meaning the operation completed successfully), or Rejected (meaning it failed).
 
-<div id="q75"></div>
+<div id="q46"></div>
 
-## 75. How do you create a Promise in JavaScript? [&uarr; Top](#top)
+## 46. How do you create a Promise in JavaScript? [&uarr; Top](#top)
 n JavaScript, you can create a Promise using the Promise constructor. The Promise constructor takes a single argument, which is a function called the "executor." The executor function takes two parameters: resolve and reject. These parameters are functions that you call to either fulfill the Promise (resolve) or reject it (reject).
 
 Here's the basic syntax for creating a Promise.
@@ -764,9 +557,9 @@ const myPromise = new Promise((resolve, reject) => {
 
 ```
 
-<div id="q76"></div>
+<div id="q47"></div>
 
-## 76. How do you handle a successful Promise? [&uarr; Top](#top)
+## 47. How do you handle a successful Promise? [&uarr; Top](#top)
 To handle a successful Promise, you use the .then() method. The .then() method is used to specify a callback function that will be executed when the Promise is fulfilled (resolved) successfully. The function inside .then() will receive the resolved value as its argument.
 ```javascript
 myPromise.then((resolvedValue) => {
@@ -775,9 +568,9 @@ myPromise.then((resolvedValue) => {
 
 ```
 
-<div id="q77"></div>
+<div id="q48"></div>
 
-## 77. How do you handle a failed Promise? [&uarr; Top](#top)
+## 48. How do you handle a failed Promise? [&uarr; Top](#top)
 To handle a failed Promise, you use the .catch() method. The .catch() method is used to specify a callback function that will be executed when the Promise is rejected. The function inside .catch() will receive the reason for the rejection (usually an error) as its argument.
 
 Here's the basic syntax for handling a failed Promise using .catch():
@@ -788,9 +581,9 @@ myPromise.catch((error) => {
 
 ```
 
-<div id="q78"></div>
+<div id="q49"></div>
 
-## 78. How do you handle multiple Promises simultaneously? [&uarr; Top](#top)
+## 49. How do you handle multiple Promises simultaneously? [&uarr; Top](#top)
 Handling multiple Promises simultaneously is a common scenario in asynchronous programming when you need to execute multiple asynchronous operations in parallel and wait for all of them to complete before performing further actions. JavaScript provides several approaches to handle multiple Promises simultaneously:
 
 **Promise.all():** The Promise.all() method takes an array of Promises as its argument and returns a new Promise that is fulfilled with an array of resolved values when all the input Promises are fulfilled. If any of the input Promises is rejected, the returned Promise will be rejected with the reason of the first rejected Promise.
@@ -837,26 +630,26 @@ Promise.race([promise1, promise2, promise3])
 
 ```
 
-<div id="q79"></div>
+<div id="q50"></div>
 
-## 79. What is the difference between Promise.all() and Promise.race()? [&uarr; Top](#top)
+## 50. What is the difference between Promise.all() and Promise.race()? [&uarr; Top](#top)
 **Promise.all()** waits for all input Promises to fulfill before resolving its returned Promise or rejecting it if any of the input Promises is rejected.
 
 **Promise.race()** resolves or rejects its returned Promise with the value or reason of the first settled Promise (the first Promise to fulfill or reject) in the input array.
 
-<div id="q80"></div>
+<div id="q51"></div>
 
-## 80. What is Promise chaining? [&uarr; Top](#top)
+## 51. What is Promise chaining? [&uarr; Top](#top)
 Promise chaining is the practice of using the return value of one Promise as the input for another, allowing you to chain multiple asynchronous operations together.
 
-<div id="q81"></div>
+<div id="q52"></div>
 
-## 81. What is the difference between Promises and callbacks? [&uarr; Top](#top)
+## 52. What is the difference between Promises and callbacks? [&uarr; Top](#top)
 Promises are more powerful and flexible than callbacks because they can handle both success and failure, can be chained, and have methods for handling multiple Promises at once.
 
-<div id="q82"></div>
+<div id="q53"></div>
 
-## 82. How do you convert a callback function to a Promise? [&uarr; Top](#top)
+## 53. How do you convert a callback function to a Promise? [&uarr; Top](#top)
 To convert a callback function to a Promise, you can wrap the callback-based function in a new function that returns a Promise. This process is called "promisification." The basic idea is to create a new Promise and use the callback function's success and error paths (i.e., the callback's resolve and reject) to fulfill or reject the Promise.
 
 Here's the general approach:
@@ -892,14 +685,14 @@ function fetchDataWithPromise() {
 
 ```
 
-<div id="q83"></div>
+<div id="q54"></div>
 
-## 83. What is the difference between a synchronous and asynchronous callback in JavaScript?	[&uarr; Top](#top)
+## 54. What is the difference between a synchronous and asynchronous callback in JavaScript?	[&uarr; Top](#top)
 A synchronous callback is executed immediately by the calling function and blocks further execution until it is complete. An asynchronous callback is executed later, after some other operation has completed, and does not block further execution. Asynchronous callbacks are often used for non-blocking operations, such as AJAX requests or timeouts.
 
-<div id="q84"></div>
+<div id="q55"></div>
 
-## 84. How many types of error in javascript? [&uarr; Top](#top)
+## 55. How many types of error in javascript? [&uarr; Top](#top)
 In JavaScript, there are several types of errors that can occur during the execution of a program. These errors are called "runtime errors" or "exceptions," and they indicate that something unexpected or incorrect has happened during the program's execution. Some common types of errors in JavaScript include:
 
 **SyntaxError:** This occurs when the code has a syntax error, such as missing parentheses, semicolons, or other syntax rules violations.
@@ -918,16 +711,16 @@ In JavaScript, there are several types of errors that can occur during the execu
 
 **Network Errors:** These are errors that occur when trying to fetch resources from external servers using XMLHttpRequest or Fetch API. Examples include 'NetworkError', 'TypeError', 'AbortError', etc
 
-<div id="q85"></div>
+<div id="q56"></div>
 
-## 85. Difference between undefined and not defined ? [&uarr; Top](#top)
+## 56. Difference between undefined and not defined ? [&uarr; Top](#top)
 **Undefined:** When a variable or identifier is declared but has not been assigned a value, it is said to have the value of "undefined." This means that the variable exists in the current scope, but it does not have any meaningful value assigned to it yet
 
 **Not Defined:** When you attempt to access a variable or identifier that has not been declared in the current scope or any enclosing scope, it is said to be "not defined." This means that the variable does not exist in the program's scope.
 
-<div id="q86"></div>
+<div id="q57"></div>
 
-## 86. What is Template literal in javascript? [&uarr; Top](#top)
+## 57. What is Template literal in javascript? [&uarr; Top](#top)
 Template literals, introduced in ECMAScript 2015 (ES6), are a feature in JavaScript that allows you to create strings with embedded expressions. They are denoted using backticks ( ) instead of single or double quotes.
 
 The syntax of a template literal is as follows:
@@ -936,16 +729,16 @@ const variable = 'value';
 const templateLiteral = `This is a template literal with ${variable} inside it.`;
 
 ```
-<div id="q87"></div>
+<div id="q58"></div>
 
-## 87. What is polyfill? [&uarr; Top](#top)
+## 58. What is polyfill? [&uarr; Top](#top)
 A "polyfill" in JavaScript is a piece of code (usually a JavaScript library or script) that provides modern functionality to older browsers or environments that do not support certain features of the latest JavaScript language or APIs. The term "polyfill" is a combination of "poly" (meaning many) and "fill," implying that it fills the gaps in functionality for older browsers.
 
 When new features are introduced in JavaScript or web APIs, not all browsers may support them immediately. This can cause compatibility issues and prevent developers from using these new features in their code. Polyfills help bridge this gap by implementing the missing functionality using JavaScript, so that developers can use the latest features regardless of whether the browser natively supports them.
 
-<div id="q88"></div>
+<div id="q59"></div>
 
-## 88. Give an example of an Anonymous function? [&uarr; Top](#top)
+## 59. Give an example of an Anonymous function? [&uarr; Top](#top)
 ```javascript
 // Using an anonymous function as a callback
 setTimeout(function() {
@@ -960,9 +753,9 @@ const addNumbers = function(a, b) {
 console.log(addNumbers(5, 10)); // Output: 15
 
 ```
-<div id="q89"></div>
+<div id="q60"></div>
 
-## 89. What is Prototype Property? Explain with an Example. [&uarr; Top](#top)
+## 60. What is Prototype Property? Explain with an Example. [&uarr; Top](#top)
 In JavaScript, every object has a special property called prototype, which allows objects to inherit properties and methods from other objects. The prototype property is used in the concept of prototypal inheritance, where objects can share common behavior through their prototypes.
 
 Here's an example to illustrate the prototype property.
@@ -987,9 +780,9 @@ person1.sayHello(); // Output: Hello, my name is Alice and I am 30 years old.
 person2.sayHello(); // Output: Hello, my name is Bob and I am 25 years old.
 
 ```
-<div id="q90"></div>
+<div id="q61"></div>
 
-## 90. Give a list of the various ways using which an HTML element can be accessed within a JavaScript code? [&uarr; Top](#top)
+## 61. Give a list of the various ways using which an HTML element can be accessed within a JavaScript code? [&uarr; Top](#top)
 In JavaScript, there are several ways to access an HTML element from within your code. Here's a list of some common methods to do so
 
 **getElementById:** This method retrieves an element by its unique ID attribute
@@ -1017,9 +810,9 @@ const elementsByTagName = document.getElementsByTagName('tagName');
 ```javascript
 const elementsByName = document.getElementsByName('elementName');
 ```
-<div id="q91"></div>
+<div id="q62"></div>
 
-## 91. Which keyword can be used to deploy inheritance in ES6? [&uarr; Top](#top)
+## 62. Which keyword can be used to deploy inheritance in ES6? [&uarr; Top](#top)
 In ES6 (ECMAScript 2015) and later versions of JavaScript, the class keyword is used to deploy inheritance and create class-based objects with the concept of prototypal inheritance. ES6 introduced a more familiar and object-oriented syntax for creating classes and implementing inheritance.
 
 Here's an example of how inheritance is achieved using the class keyword:
@@ -1058,9 +851,9 @@ console.log(dog.name); // Output: Buddy
 console.log(dog.breed); // Output: Labrador
 dog.makeSound(); // Output: Woof woof!
 ```
-<div id="q92"></div>
+<div id="q63"></div>
 
-## 92. What's the difference between a function expression and function declaration? [&uarr; Top](#top)
+## 63. What's the difference between a function expression and function declaration? [&uarr; Top](#top)
 Function expression and function declaration are two different ways of creating functions in JavaScript. The main difference lies in how and when they are defined and hoisted in the code.
 
 **Function Declaration:**
@@ -1083,9 +876,9 @@ const functionName = function(parameters) {
 };
 
 ```
-<div id="q93"></div>
+<div id="q64"></div>
 
-## 93. Explain the difference between Object.freeze() vs const? [&uarr; Top](#top)
+## 64. Explain the difference between Object.freeze() vs const? [&uarr; Top](#top)
 **const Keyword:**
 The const keyword is used to declare variables with constant values. It ensures that the value of the variable cannot be reassigned after its initial assignment. This applies to primitive values as well as object references. However, const does not prevent the properties of an object from being modified if the object itself is mutable.
 
@@ -1104,10 +897,3 @@ const obj = { key: "value" };
 Object.freeze(obj);
 obj.key = "new value"; // This won't modify the object and will have no effect
 ```
-
-<div id="q94"></div>
-<div id="q95"></div>
-
-
-
-
