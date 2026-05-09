@@ -1,5 +1,5 @@
 
-#  Brush up your JavaScript knowledge for your 2023 interview with this list of 75+ frequently asked questions
+#  Brush up your JavaScript knowledge for your 2023 interview with this list of 90 frequently asked questions
 
 
 ## Table of Contents
@@ -84,6 +84,17 @@
 - [77. What is a Buffer in Node.js and why is it used for binary data?](#q77)
 - [78. How do you handle "CORS" in a Node.js Express application?](#q78)
 - [79. How do you perform "Heap Profiling" to find memory leaks in Node.js?](#q79)
+- [80. Microservices: Difference between REST, GraphQL, and gRPC. When to use which?](#q80)
+- [81. Caching: Explain Cache-Aside vs Write-Through strategies. How to handle Cache Invalidation?](#q81)
+- [82. Concurrency: How do you handle race conditions in Node.js with a database?](#q82)
+- [83. Security: Explain JWT authentication. How do you handle token revocation?](#q83)
+- [84. Scalability: Horizontal vs Vertical scaling. How do you scale a Node.js app to handle millions of requests?](#q84)
+- [85. Distributed Systems: Why use a Message Queue (like RabbitMQ or Kafka) instead of direct HTTP calls?](#q85)
+- [86. Database: What is the difference between SQL and NoSQL? When would you choose one over the other?](#q86)
+- [87. Performance: What is "Event Loop Lag" and how do you monitor/prevent it in production?](#q87)
+- [88. Testing: How do you approach testing a large-scale Node.js application? (Test Pyramid)](#q88)
+- [89. Resiliency: What is the "Circuit Breaker" pattern and why is it important in microservices?](#q89)
+- [90. Logging: Importance of "Structured Logging" and "Request Correlation IDs" for debugging.](#q90)
 
 
 
@@ -1099,3 +1110,95 @@ app.use(cors({
    snapshotStream.pipe(fs.createWriteStream('leak.heapsnapshot'));
    ```
 3. **Third-party Tools:** Use `clinic.js` (specifically `clinic bubbleprof` or `clinic heapdump`) for automated analysis and visualization of memory and performance issues.
+
+<div id="q80"></div>
+
+## 80. Microservices: Difference between REST, GraphQL, and gRPC. When to use which? [&uarr; Top](#top)
+- **REST:** Uses standard HTTP methods (GET, POST, etc.). Best for public APIs and simple CRUD operations. Easy to cache but can suffer from over-fetching or under-fetching data.
+- **GraphQL:** Allows clients to request exactly the data they need. Best for complex frontends with varying data requirements. Reduces network overhead but makes server-side caching more difficult.
+- **gRPC:** High-performance, uses Protocol Buffers (binary) and HTTP/2. Best for internal service-to-service communication where low latency and strong contract typing are critical.
+
+<div id="q81"></div>
+
+## 81. Caching: Explain Cache-Aside vs Write-Through strategies. How to handle Cache Invalidation? [&uarr; Top](#top)
+- **Cache-Aside:** The application checks the cache first. If it's a miss, it loads data from the database, updates the cache, and returns. Most common for read-heavy workloads.
+- **Write-Through:** Data is written to the cache and the database simultaneously. Ensures consistency but adds latency to writes.
+- **Cache Invalidation:** The "hardest problem" in CS. Common approaches include:
+    - **TTL (Time to Live):** Automatic expiration.
+    - **Write-around:** Update DB and invalidate/delete the cache entry.
+    - **CDC (Change Data Capture):** Listen to DB changes to update cache.
+
+<div id="q82"></div>
+
+## 82. Concurrency: How do you handle race conditions in Node.js with a database? [&uarr; Top](#top)
+Even though Node.js is single-threaded, race conditions occur when multiple requests interact with the database concurrently.
+- **Optimistic Locking:** Assume conflicts are rare. Use a `version` column. `UPDATE ... WHERE id=1 AND version=old_version`. If 0 rows are updated, someone else changed it.
+- **Pessimistic Locking:** Assume conflicts are likely. Use `SELECT ... FOR UPDATE` in SQL. This locks the rows until the transaction completes, preventing others from reading/writing.
+
+<div id="q83"></div>
+
+## 83. Security: Explain JWT authentication. How do you handle token revocation? [&uarr; Top](#top)
+JWT (JSON Web Token) is stateless. Once issued, it’s valid until it expires.
+- **The Problem:** You can't "log out" a user or ban them instantly because the server doesn't check a database for every request.
+- **Revocation Strategies:**
+    1. **Blacklisting:** Store revoked `jti` (JWT ID) in Redis with a TTL equal to the remaining token life.
+    2. **Short-lived Access Tokens + Refresh Tokens:** Use 15m access tokens and a database-backed refresh token to rotate them.
+    3. **Version/Timestamp check:** Store a `token_version` in the user record; increment it to invalidate all current tokens.
+
+<div id="q84"></div>
+
+## 84. Scalability: Horizontal vs Vertical scaling. How do you scale a Node.js app to handle millions of requests? [&uarr; Top](#top)
+- **Vertical Scaling:** Increasing CPU/RAM on a single server. Limited by hardware caps and cost.
+- **Horizontal Scaling:** Adding more server instances. Preferred for Node.js.
+- **Node.js Strategies:**
+    - Use the **Cluster module** to utilize all cores on a single machine.
+    - Use a **Load Balancer** (Nginx, AWS ALB) to distribute traffic across multiple machines.
+    - **Statelessness:** Ensure the app doesn't store session data in memory (use Redis for sessions).
+
+<div id="q85"></div>
+
+## 85. Distributed Systems: Why use a Message Queue (like RabbitMQ or Kafka) instead of direct HTTP calls? [&uarr; Top](#top)
+- **Decoupling:** Service A doesn't need to know if Service B is up.
+- **Asynchronous Processing:** Offload heavy tasks (e.g., sending emails, generating PDFs) so the user gets an instant response.
+- **Spike Smoothing (Buffering):** If traffic spikes, the queue holds the messages, and consumers process them at their own pace without crashing.
+- **Retries:** Built-in mechanisms to retry failed tasks automatically.
+
+<div id="q86"></div>
+
+## 86. Database: What is the difference between SQL and NoSQL? When would you choose one over the other? [&uarr; Top](#top)
+- **SQL (PostgreSQL, MySQL):** Structured, ACID compliant, strong relations. Best for complex queries, financial data, and when data integrity is paramount.
+- **NoSQL (MongoDB, Cassandra):** Flexible schema, horizontally scalable, high throughput. Best for rapidly changing data structures, big data, and real-time feeds.
+- **Decision:** Choose SQL by default for "source of truth" data. Choose NoSQL for specific use cases like caching, logging, or high-volume unstructured data.
+
+<div id="q87"></div>
+
+## 87. Performance: What is "Event Loop Lag" and how do you monitor/prevent it in production? [&uarr; Top](#top)
+Event Loop Lag occurs when the loop is blocked by a heavy synchronous operation, preventing it from processing the next tick.
+- **Monitoring:** Use `perf_hooks` in Node.js or tools like `Prometheus` to track the delay between phases.
+- **Prevention:**
+    - Never perform heavy JSON parsing/stringifying on the main thread for large objects.
+    - Use Worker Threads for CPU-intensive logic.
+    - Offload complex tasks to background jobs (BullMQ).
+
+<div id="q88"></div>
+
+## 88. Testing: How do you approach testing a large-scale Node.js application? (Test Pyramid) [&uarr; Top](#top)
+- **Unit Tests (70%):** Test individual functions/classes in isolation. Fast and reliable.
+- **Integration Tests (20%):** Test how multiple components work together (e.g., API -> Service -> DB). Use real or "dockerized" databases (Testcontainers).
+- **E2E Tests (10%):** Test the full user flow from the frontend to the backend. High confidence but slow and brittle.
+
+<div id="q89"></div>
+
+## 89. Resiliency: What is the "Circuit Breaker" pattern and why is it important in microservices? [&uarr; Top](#top)
+If Service A calls Service B and Service B is failing/slow, Service A might exhaust its resources waiting for timeouts, causing a cascading failure.
+- **Circuit Breaker States:**
+    - **Closed:** Everything is normal; requests pass through.
+    - **Open:** Too many failures occurred; requests fail immediately without calling Service B.
+    - **Half-Open:** Periodically allow a few requests to see if Service B has recovered.
+
+<div id="q90"></div>
+
+## 90. Logging: Importance of "Structured Logging" and "Request Correlation IDs" for debugging. [&uarr; Top](#top)
+- **Structured Logging:** Logging data in JSON format instead of plain text. Makes it searchable in tools like ELK (Elasticsearch, Logstash, Kibana) or Datadog.
+  `{"level": "info", "msg": "User logged in", "userId": 123, "traceId": "abc-456"}`
+- **Correlation IDs:** A unique ID attached to a request as it flows through multiple microservices. Essential for tracing a single user action across the entire distributed system.
