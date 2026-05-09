@@ -179,7 +179,23 @@ NaN stands for "Not a Number," and it is a value that is returned when a mathema
 <div id="l0q7"></div>
 
 ## 7. What is the difference between Primitive and Non-primitive data types in JavaScript? [&uarr; Top](#top)
-The main difference between primitive and non-primitive data types in JavaScript is that primitive data types store a single value like let, string, boolean, undefined and null while non-primitive data types can store multiple values and methods like object, date, RegExp and function. Additionally, primitive data types are immutable, while non-primitive data types are mutable
+The main difference is that **Primitive** types are immutable and stored by value, while **Non-primitive** (Reference) types are mutable and stored by reference.
+
+**Code Example:**
+```javascript
+// Primitive: Pass by Value
+let a = 10;
+let b = a;
+b = 20;
+console.log(a); // 10 (unchanged)
+
+// Non-Primitive: Pass by Reference
+let obj1 = { name: "John" };
+let obj2 = obj1;
+obj2.name = "Doe";
+console.log(obj1.name); // "Doe" (changed because both point to the same memory)
+```
+Additionally, primitive data types include `number`, `string`, `boolean`, `undefined`, `null`, and `symbol`. Non-primitive types include `object`, `array`, and `function`.
 
 
 <div id="l0q8"></div>
@@ -201,10 +217,17 @@ The double equals (==) operator checks for equality after converting both values
 <div id="l0q10"></div>
 
 ## 10. Difference between undefined and not defined ? [&uarr; Top](#top)
-**Undefined:** When a variable or identifier is declared but has not been assigned a value, it is said to have the value of "undefined." This means that the variable exists in the current scope, but it does not have any meaningful value assigned to it yet
+- **undefined:** A variable has been declared but has not yet been assigned a value. It is an actual type in JavaScript.
+- **not defined:** A variable that has not been declared at all in the current scope. Accessing it results in a `ReferenceError`.
 
-**Not Defined:** When you attempt to access a variable or identifier that has not been declared in the current scope or any enclosing scope, it is said to be "not defined." This means that the variable does not exist in the program's scope.
+**Code Example:**
+```javascript
+let x;
+console.log(x); // undefined (declared but no value)
+console.log(typeof x); // "undefined"
 
+console.log(y); // ReferenceError: y is not defined
+```
 
 <div id="l0q11"></div>
 
@@ -994,11 +1017,26 @@ obj.key = "new value"; // This won't modify the object and will have no effect
 <div id="l1q38"></div>
 
 ## 38. What is the difference between Map and WeakMap? Give a real-world use case. [&uarr; Top](#top)
-- **Map:** Keys can be of any type (objects or primitives). It holds a **strong reference** to its keys, meaning as long as the Map exists, the keys cannot be garbage collected.
-- **WeakMap:** Keys **must be objects**. It holds a **weak reference** to its keys. If there are no other references to a key object, it can be garbage collected even if it's still in the WeakMap. WeakMaps are not enumerable (no `size` or `forEach`).
+- **Map:** Strong references to keys. Keys can be any type. Enumerable.
+- **WeakMap:** **Weak references** to keys. Keys must be **objects**. Not enumerable.
 
-**Use Case:**
-Storing private metadata for objects without causing memory leaks. For example, associating temporary data with a DOM element: if the DOM element is removed from the document and has no other references, the associated data in the WeakMap will be automatically cleared.
+**Use Case: Private Class Data**
+```javascript
+const privates = new WeakMap();
+
+class SecureUser {
+  constructor(id, secret) {
+    privates.set(this, { id, secret });
+  }
+  getSecret() {
+    return privates.get(this).secret;
+  }
+}
+
+let user = new SecureUser(1, "my-secret-key");
+console.log(user.getSecret()); // "my-secret-key"
+user = null; // Associated data in WeakMap is automatically GCed
+```
 
 
 <div id="l1q39"></div>
@@ -1137,10 +1175,23 @@ const validator = new Proxy(user, {
 <div id="l2q6"></div>
 
 ## 6. What is process.nextTick() and how does it differ from setImmediate()? [&uarr; Top](#top)
-- **`process.nextTick()`**: Schedules a callback to be invoked in the same phase of the event loop, immediately after the current operation completes. It effectively "interupts" the event loop. Overusing it can lead to I/O starvation.
-- **`setImmediate()`**: Schedules a callback to be invoked in the **Check phase** of the next iteration (or current iteration if the poll phase is finished) of the event loop.
+- **`process.nextTick()`**: Executes immediately after the current operation, before the event loop continues to the next phase or even the microtask queue (Promises).
+- **`setImmediate()`**: Executes in the "Check" phase of the event loop.
 
-**Rule of Thumb:** Use `setImmediate()` most of the time. Use `process.nextTick()` only when you need to ensure a callback runs after the current code but before the event loop continues (e.g., for error handling or cleanup before further I/O).
+**Execution Order Challenge:**
+```javascript
+console.log("Start");
+
+setTimeout(() => console.log("Timeout"), 0);
+setImmediate(() => console.log("Immediate"));
+process.nextTick(() => console.log("NextTick"));
+Promise.resolve().then(() => console.log("Promise"));
+
+console.log("End");
+
+// Output:
+// Start -> End -> NextTick -> Promise -> Timeout -> Immediate
+```
 
 
 <div id="l2q7"></div>
@@ -1225,9 +1276,20 @@ A `Buffer` is a global class in Node.js used to handle **binary data** directly.
 <div id="l3q3"></div>
 
 ## 3. Concurrency: How do you handle race conditions in Node.js with a database? [&uarr; Top](#top)
-Even though Node.js is single-threaded, race conditions occur when multiple requests interact with the database concurrently.
-- **Optimistic Locking:** Assume conflicts are rare. Use a `version` column. `UPDATE ... WHERE id=1 AND version=old_version`. If 0 rows are updated, someone else changed it.
-- **Pessimistic Locking:** Assume conflicts are likely. Use `SELECT ... FOR UPDATE` in SQL. This locks the rows until the transaction completes, preventing others from reading/writing.
+- **Optimistic Locking:** Use a version number or timestamp.
+  ```sql
+  UPDATE products SET stock = stock - 1, version = version + 1
+  WHERE id = 123 AND version = 5;
+  ```
+  If the update returns 0 rows, it means someone else updated the record.
+- **Pessimistic Locking:** Lock the row at the database level.
+  ```sql
+  BEGIN;
+  SELECT * FROM products WHERE id = 123 FOR UPDATE;
+  -- Perform logic, then update
+  UPDATE products SET stock = stock - 1 WHERE id = 123;
+  COMMIT;
+  ```
 
 
 <div id="l3q4"></div>
