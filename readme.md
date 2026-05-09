@@ -924,30 +924,46 @@ When new features are introduced in JavaScript or web APIs, not all browsers may
 <div id="l1q35"></div>
 
 ## 35. What is Prototype Property? Explain with an Example. [&uarr; Top](#top)
-In JavaScript, every object has a special property called prototype, which allows objects to inherit properties and methods from other objects. The prototype property is used in the concept of prototypal inheritance, where objects can share common behavior through their prototypes.
+The `prototype` is an object that is associated with every function by default in JavaScript. It allows you to add properties and methods that will be shared across all instances of that function.
 
-Here's an example to illustrate the prototype property.
+### The difference between `__proto__` and `prototype`
+This is one of the most common interview questions. Here is the distinction:
+
+1. **`prototype`**: Only exists on **Constructor Functions**. It is the "blueprint" used to set the prototype of new objects created with `new`.
+2. **`__proto__`**: Exists on **every Object** (instance). It is the actual "link" that points to the `prototype` of the constructor that created it.
+
+**The Golden Rule:** `obj.__proto__ === Constructor.prototype`
+
+**Code Example:**
 ```javascript
-// Constructor function for creating Person objects
-function Person(name, age) {
+function Person(name) {
   this.name = name;
-  this.age = age;
 }
 
-// Adding a method to the prototype of the Person constructor
-Person.prototype.sayHello = function() {
-  console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+// 1. Add to the 'prototype' of the constructor
+Person.prototype.greet = function() {
+  return `Hello, ${this.name}`;
 };
 
-// Creating two Person objects using the 'new' keyword
-const person1 = new Person('Alice', 30);
-const person2 = new Person('Bob', 25);
+const john = new Person("John");
 
-// Calling the sayHello method on both objects
-person1.sayHello(); // Output: Hello, my name is Alice and I am 30 years old.
-person2.sayHello(); // Output: Hello, my name is Bob and I am 25 years old.
+// 2. The instance 'john' has a '__proto__' that points to Person.prototype
+console.log(john.__proto__ === Person.prototype); // true
 
+// 3. The constructor 'Person' has a 'prototype', but 'john' does NOT
+console.log(Person.prototype); // { greet: [Function], constructor: Person }
+console.log(john.prototype);   // undefined (instances don't have a prototype property)
+
+// 4. Accessing 'greet' on 'john' works via the prototype chain
+console.log(john.greet()); // "Hello, John"
 ```
+
+### Visualizing the Chain
+When you call `john.greet()`, JavaScript:
+1. Looks for `greet` on the `john` object itself. (Not found)
+2. Looks for `greet` on `john.__proto__` (which is `Person.prototype`). (Found!)
+3. If still not found, it would look at `Person.prototype.__proto__` (which is `Object.prototype`).
+4. This continues until it hits `null` at the end of the chain.
 
 <div id="l1q36"></div>
 
