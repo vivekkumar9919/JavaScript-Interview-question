@@ -1120,11 +1120,57 @@ The loop consists of six main phases that repeat as long as there is work to do:
 
 ![Node.js Event Loop Diagram](assets/node_js_event_loop_diagram.png)
 
+### The Lifecycle of an Asynchronous Operation
+To understand how Node.js handles async tasks, we must look at the interaction between the **Call Stack**, **Node APIs**, and the **Event Loop**.
+
+1. **The Call Stack:** JavaScript's single thread executes code here. If a function is called, it's pushed to the stack. If it returns, it's popped.
+2. **Node APIs (libuv):** When you call an async function (like `fs.readFile` or `setTimeout`), Node.js offloads this work to the background (using C++ threads or OS features via libuv). The Call Stack stays free to continue executing the main script.
+3. **Task & Microtask Queues:** Once an async operation completes, its callback is placed into a queue.
+    - **Microtask Queue:** (Promises, `process.nextTick`) - Very high priority.
+    - **Macrotask/Task Queue:** (Timers, I/O) - Standard priority.
+4. **The Event Loop:** Its only job is to watch the **Call Stack** and the **Queues**. If the Call Stack is **empty**, it pushes the first task from the queue into the Stack for execution.
+
+### Step-by-Step Example
+Consider this code:
+```javascript
+console.log("1. Start");
+
+setTimeout(() => {
+  console.log("2. Timer Callback");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("3. Promise Callback");
+});
+
+console.log("4. End");
+```
+
+**What happens behind the scenes?**
+1. `console.log("1. Start")` is pushed to the **Call Stack**, executes, and is popped.
+2. `setTimeout` is called. The timer is offloaded to **Node APIs**. The callback is *not* put in the queue yet. `setTimeout` returns and is popped from the stack.
+3. `Promise.resolve().then(...)` is called. The callback is immediately pushed to the **Microtask Queue**.
+4. `console.log("4. End")` is pushed to the **Call Stack**, executes, and is popped.
+5. The **Call Stack is now empty**. 
+6. The Event Loop checks the **Microtask Queue**. It finds the Promise callback, pushes it to the stack, it executes `"3. Promise Callback"`, and is popped.
+7. Meanwhile, the 0ms timer in the background finishes. Node APIs move the timer callback to the **Macrotask Queue**.
+8. The Event Loop checks the **Microtask Queue** again (it's empty), then moves to the **Macrotask Queue**. It pushes the timer callback to the stack, it executes `"2. Timer Callback"`, and is popped.
+
+**Final Output:**
+```text
+1. Start
+4. End
+3. Promise Callback
+2. Timer Callback
+```
+
 ### Key Concepts:
-1. **Phases:** Each phase has a FIFO queue of callbacks to execute. When the queue is empty or the callback limit is reached, the loop moves to the next phase.
-2. **Poll Phase:** This is where the loop spends most of its time. It calculates how long it should block and poll for I/O, then processes those events.
-3. **Microtask Interruption:** `process.nextTick` and `Promise` callbacks are **not** part of the libuv event loop. Instead, they are processed **after every operation** and between phases.
-4. **Priority:** `process.nextTick` queue is processed first, followed by the Promise microtask queue.
+1. **V8 vs. libuv:** The **Call Stack** and the memory heap are part of the V8 engine (JavaScript's brain). The **Event Loop**, **Queues**, and **Async APIs** are part of the libuv library (Node's nervous system).
+2. **The "Empty Stack" Rule:** The Event Loop will **never** push a callback from the queue to the stack until the Call Stack is completely empty. This is why synchronous code always finishes before asynchronous code.
+3. **Phases:** Each phase has a FIFO queue of callbacks to execute. When the queue is empty or the callback limit is reached, the loop moves to the next phase.
+4. **Poll Phase:** This is where the loop spends most of its time. It calculates how long it should block and poll for I/O, then processes those events.
+5. **Microtask Interruption:** `process.nextTick` and `Promise` callbacks are **not** part of the libuv event loop. Instead, they are processed **after every operation** and between phases.
+6. **Priority & Starvation:** `process.nextTick` has the highest priority. If you recursively call `process.nextTick`, you can **starve** the Event Loop, preventing it from ever reaching the next phase (like Timers or I/O).
 
 
 <div id="l2q3"></div>
