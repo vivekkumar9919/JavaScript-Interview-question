@@ -1,5 +1,5 @@
 
-#  Brush up your JavaScript knowledge for your 2023 interview with this list of 64 frequently asked questions
+#  Brush up your JavaScript knowledge for your 2023 interview with this list of 75+ frequently asked questions
 
 
 ## Table of Contents
@@ -69,6 +69,21 @@
 - [62. Which keyword can be used to deploy inheritance in ES6?](#q62)
 - [63. What's the difference between a function expression and function declaration?](#q63)
 - [64. Explain the difference between Object.freeze() vs const?](#q64)
+- [65. What is the difference between Microtasks and Macrotasks in the Event Loop?](#q65)
+- [66. Explain how Garbage Collection works in V8 (Orinoco, Scavenger, Mark-Sweep)?](#q66)
+- [67. What is the difference between Map and WeakMap? Give a real-world use case.](#q67)
+- [68. What are Proxy and Reflect? How can they be used for data validation or observation?](#q68)
+- [69. Explain "Currying" and "Partial Application" with examples.](#q69)
+- [70. How do you identify and prevent memory leaks in a JavaScript application?](#q70)
+- [71. What is the difference between shallow copy and deep copy using structuredClone?](#q71)
+- [72. Deep Dive: What is the Node.js Event Loop and how does it work?](#q72)
+- [73. What is process.nextTick() and how does it differ from setImmediate()?](#q73)
+- [74. What is "Backpressure" in Node.js Streams and how do you handle it?](#q74)
+- [75. When should you use Worker Threads over Child Processes?](#q75)
+- [76. Explain the Cluster module and how it enables load balancing.](#q76)
+- [77. What is a Buffer in Node.js and why is it used for binary data?](#q77)
+- [78. How do you handle "CORS" in a Node.js Express application?](#q78)
+- [79. How do you perform "Heap Profiling" to find memory leaks in Node.js?](#q79)
 
 
 
@@ -897,3 +912,190 @@ const obj = { key: "value" };
 Object.freeze(obj);
 obj.key = "new value"; // This won't modify the object and will have no effect
 ```
+
+<div id="q65"></div>
+
+## 65. What is the difference between Microtasks and Macrotasks in the Event Loop? [&uarr; Top](#top)
+In JavaScript, the Event Loop prioritizes tasks into two queues: **Microtasks** and **Macrotasks** (often just called Tasks).
+
+- **Microtasks:** Have higher priority. They include `Promise.then`, `MutationObserver`, and in Node.js, `process.nextTick`. The microtask queue is emptied entirely after every single macrotask and before the next macrotask starts.
+- **Macrotasks:** Include `setTimeout`, `setInterval`, `setImmediate`, I/O tasks, and UI rendering. Only one macrotask is processed from the queue in each iteration of the event loop.
+
+**Execution Order:**
+1. Execute a Macrotask (like the initial script).
+2. Execute **all** available Microtasks.
+3. Render UI (in browsers).
+4. Move to the next Macrotask.
+
+<div id="q66"></div>
+
+## 66. Explain how Garbage Collection works in V8 (Orinoco, Scavenger, Mark-Sweep)? [&uarr; Top](#top)
+V8 uses a generational garbage collection strategy to manage memory efficiently:
+
+- **Young Generation (Scavenger):** Most objects die young. V8 allocates them in a small space called the "New Space". When it fills up, a "Scavenger" algorithm (Semi-space) quickly moves surviving objects to another half of the space or promotes them to the Old Space.
+- **Old Generation (Full GC):** Objects that survive multiple scavenge cycles are moved here. V8 uses **Mark-Sweep** and **Mark-Compact** algorithms. It marks all reachable objects, then sweeps away the unreachable ones and compacts the memory to prevent fragmentation.
+- **Orinoco:** The modern V8 GC project that implements parallel, incremental, and concurrent techniques to reduce "stop-the-world" pauses, keeping applications responsive.
+
+<div id="q67"></div>
+
+## 67. What is the difference between Map and WeakMap? Give a real-world use case. [&uarr; Top](#top)
+- **Map:** Keys can be of any type (objects or primitives). It holds a **strong reference** to its keys, meaning as long as the Map exists, the keys cannot be garbage collected.
+- **WeakMap:** Keys **must be objects**. It holds a **weak reference** to its keys. If there are no other references to a key object, it can be garbage collected even if it's still in the WeakMap. WeakMaps are not enumerable (no `size` or `forEach`).
+
+**Use Case:**
+Storing private metadata for objects without causing memory leaks. For example, associating temporary data with a DOM element: if the DOM element is removed from the document and has no other references, the associated data in the WeakMap will be automatically cleared.
+
+<div id="q68"></div>
+
+## 68. What are Proxy and Reflect? How can they be used for data validation or observation? [&uarr; Top](#top)
+- **Proxy:** An object that wraps another object (target) and allows you to intercept and redefine fundamental operations (getting/setting properties, calling functions, etc.) using "traps".
+- **Reflect:** A built-in object that provides methods for interceptable JavaScript operations. It’s often used inside Proxy traps to perform the default behavior on the target.
+
+**Example (Validation):**
+```javascript
+const user = { name: "John", age: 25 };
+const validator = new Proxy(user, {
+  set(target, prop, value) {
+    if (prop === 'age' && value < 0) {
+      throw new Error("Age cannot be negative");
+    }
+    return Reflect.set(target, prop, value);
+  }
+});
+```
+
+<div id="q69"></div>
+
+## 69. Explain "Currying" and "Partial Application" with examples. [&uarr; Top](#top)
+- **Currying:** Transforming a function that takes multiple arguments into a sequence of functions that each take a **single** argument.
+  ```javascript
+  const sum = a => b => c => a + b + c;
+  console.log(sum(1)(2)(3)); // 6
+  ```
+- **Partial Application:** Fixing a number of arguments to a function, producing another function of smaller arity.
+  ```javascript
+  const multiply = (a, b) => a * b;
+  const double = multiply.bind(null, 2);
+  console.log(double(5)); // 10
+  ```
+
+<div id="q70"></div>
+
+## 70. How do you identify and prevent memory leaks in a JavaScript application? [&uarr; Top](#top)
+**Identification:**
+- Use Browser DevTools (Memory tab) to take heap snapshots and compare them.
+- Look for a "sawtooth" pattern in memory usage.
+- Use `Performance.measureUserAgentSpecificMemory()` in modern browsers.
+
+**Prevention:**
+1. **Clear Timers/Listeners:** Always `clearInterval` or `removeEventListener` when a component unmounts.
+2. **Avoid Global Variables:** Variables attached to `window` stay in memory forever.
+3. **Closures:** Be careful not to hold onto large objects in closures if they aren't needed.
+4. **Weak References:** Use `WeakMap` or `WeakSet` for object-associated data.
+
+<div id="q71"></div>
+
+## 71. What is the difference between shallow copy and deep copy using structuredClone? [&uarr; Top](#top)
+- **Shallow Copy (`{...obj}` or `Object.assign`):** Copies the top-level properties. Nested objects are still shared by reference.
+- **Deep Copy (`JSON.parse(JSON.stringify(obj))`):** Creates a completely independent copy. However, it fails with Functions, Dates, Undefined, Infinity, and Circular References.
+- **`structuredClone()`:** A new native API for deep cloning. It supports Circular References, Dates, RegExps, Map, Set, and ArrayBuffers. It is more robust and faster than the JSON hack but still does not clone Functions or DOM elements.
+
+```javascript
+const original = { date: new Date(), nested: { a: 1 } };
+const clone = structuredClone(original);
+console.log(clone.date instanceof Date); // true (JSON hack would make it a string)
+```
+
+<div id="q72"></div>
+
+## 72. Deep Dive: What is the Node.js Event Loop and how does it work? [&uarr; Top](#top)
+The Event Loop is what allows Node.js to perform non-blocking I/O operations — despite JavaScript being single-threaded — by offloading operations to the system kernel whenever possible.
+
+### Event Loop Phases (libuv)
+The loop consists of six main phases that repeat as long as there is work to do:
+
+![Node.js Event Loop Diagram](assets/node_js_event_loop_diagram.png)
+
+### Key Concepts:
+1. **Phases:** Each phase has a FIFO queue of callbacks to execute. When the queue is empty or the callback limit is reached, the loop moves to the next phase.
+2. **Poll Phase:** This is where the loop spends most of its time. It calculates how long it should block and poll for I/O, then processes those events.
+3. **Microtask Interruption:** `process.nextTick` and `Promise` callbacks are **not** part of the libuv event loop. Instead, they are processed **after every operation** and between phases.
+4. **Priority:** `process.nextTick` queue is processed first, followed by the Promise microtask queue.
+
+<div id="q73"></div>
+
+## 73. What is process.nextTick() and how does it differ from setImmediate()? [&uarr; Top](#top)
+- **`process.nextTick()`**: Schedules a callback to be invoked in the same phase of the event loop, immediately after the current operation completes. It effectively "interupts" the event loop. Overusing it can lead to I/O starvation.
+- **`setImmediate()`**: Schedules a callback to be invoked in the **Check phase** of the next iteration (or current iteration if the poll phase is finished) of the event loop.
+
+**Rule of Thumb:** Use `setImmediate()` most of the time. Use `process.nextTick()` only when you need to ensure a callback runs after the current code but before the event loop continues (e.g., for error handling or cleanup before further I/O).
+
+<div id="q74"></div>
+
+## 74. What is "Backpressure" in Node.js Streams and how do you handle it? [&uarr; Top](#top)
+**Backpressure** occurs when the **Writable** stream cannot keep up with the speed of the **Readable** stream. Data starts to build up in memory (the internal buffer), which can lead to high memory usage or crashes.
+
+**How to handle it:**
+- **Manual:** Check the return value of `writable.write()`. If it returns `false`, stop reading until the `drain` event is emitted.
+- **Automated:** Use `.pipe()`. It automatically handles backpressure by pausing and resuming the readable stream based on the writable stream's state.
+  ```javascript
+  readable.pipe(writable);
+  ```
+
+<div id="q75"></div>
+
+## 75. When should you use Worker Threads over Child Processes? [&uarr; Top](#top)
+- **Child Processes (`child_process`):** Run in their own OS process with their own memory space. Best for running separate applications, shell commands, or tasks where total isolation is needed. Communication via IPC is slower.
+- **Worker Threads (`worker_threads`):** Run in the **same process** but in separate threads. They share the same memory space (using `SharedArrayBuffer`). Best for **CPU-intensive tasks** (like image processing or complex math) within the same application. They are lighter than child processes.
+
+<div id="q76"></div>
+
+## 76. Explain the Cluster module and how it enables load balancing. [&uarr; Top](#top)
+The `cluster` module allows you to create multiple instances of your Node.js application (workers) that all share the same server port. 
+
+- **Master Process:** Orchestrates the workers. It doesn't handle requests itself; it listens on the port and distributes incoming connections to workers.
+- **Worker Processes:** Handle the actual requests.
+- **Load Balancing:** By default, the master process uses a **round-robin** strategy (except on Windows) to distribute connections across workers, ensuring high availability and utilizing multi-core CPUs.
+
+<div id="q77"></div>
+
+## 77. What is a Buffer in Node.js and why is it used for binary data? [&uarr; Top](#top)
+A `Buffer` is a global class in Node.js used to handle **binary data** directly. Since JavaScript strings are UTF-16 encoded, they are inefficient for dealing with raw data like images, file streams, or network packets.
+
+- Buffers represent a fixed-size chunk of memory allocated **outside the V8 heap**.
+- They are useful for performance-critical tasks involving I/O.
+  ```javascript
+  const buf = Buffer.from('Hello');
+  console.log(buf.toString('hex')); // 48656c6c6f
+  ```
+
+<div id="q78"></div>
+
+## 78. How do you handle "CORS" in a Node.js Express application? [&uarr; Top](#top)
+Cross-Origin Resource Sharing (CORS) is a security feature that restricts web pages from making requests to a different domain than the one that served the web page.
+
+In Express, use the `cors` middleware:
+```javascript
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+app.use(cors({
+  origin: 'https://yourfrontend.com',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+```
+
+<div id="q79"></div>
+
+## 79. How do you perform "Heap Profiling" to find memory leaks in Node.js? [&uarr; Top](#top)
+1. **Inspect with Chrome DevTools:** Start Node with `--inspect`. Open Chrome and go to `chrome://inspect`. Use the **Memory** tab to take snapshots.
+2. **`v8` Module:** Programmatically take snapshots.
+   ```javascript
+   const v8 = require('v8');
+   const fs = require('fs');
+   const snapshotStream = v8.getHeapSnapshot();
+   snapshotStream.pipe(fs.createWriteStream('leak.heapsnapshot'));
+   ```
+3. **Third-party Tools:** Use `clinic.js` (specifically `clinic bubbleprof` or `clinic heapdump`) for automated analysis and visualization of memory and performance issues.
